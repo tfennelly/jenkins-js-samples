@@ -1,0 +1,13 @@
+# IntelliJ project files 
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Jenkins
+work/
+
+# Node
+node/
+node_modules/
+npm-debug.log
