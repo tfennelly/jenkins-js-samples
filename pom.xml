@@ -20,6 +20,7 @@
     <modules>
         <module>step-01-basic</module>
         <module>step-02-nodeify</module>
+        <module>step-03-bootstrap</module>
     </modules>
 
     <properties>
