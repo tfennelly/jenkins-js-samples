@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
-    <artifactId>step-01-nodeify</artifactId>
+    <artifactId>step-02-nodeify</artifactId>
     <version>1.0</version>
     <packaging>hpi</packaging>
 

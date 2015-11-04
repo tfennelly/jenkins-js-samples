@@ -11,3 +11,6 @@ work/
 node/
 node_modules/
 npm-debug.log
+
+# Ignore generated bundles
+**/webapp/jsbundles/*
