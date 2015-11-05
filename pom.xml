@@ -21,6 +21,7 @@
         <module>step-01-basic</module>
         <module>step-02-nodeify</module>
         <module>step-03-bootstrap</module>
+        <module>step-04-externalize-libs</module>
     </modules>
 
     <properties>
