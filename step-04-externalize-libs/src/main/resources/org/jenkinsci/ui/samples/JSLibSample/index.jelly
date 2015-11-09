@@ -43,7 +43,7 @@ THE SOFTWARE.
                         <input type="checkbox">Check me out</input>
                     </label>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Save</button>
             </form>
             </div>
         </l:main-panel>
