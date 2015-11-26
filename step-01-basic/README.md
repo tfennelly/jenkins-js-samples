@@ -10,7 +10,7 @@ a simple form.
 At this point, we are ready to "nodeify" the plugin by adding some CommonJS JavaScript modules and,
 from them, create a browser-ready bundle that has everything it needs to function.
 
-<b><a href="../../tree/master/step-02-nodeify">NEXT (step-02-nodeify) &gt;&gt;</a></b>
+<b><a href="../../../tree/master/step-02-nodeify">NEXT (step-02-nodeify) &gt;&gt;</a></b>
 
 [Plugin Tutorial]: https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
 [jenkins-js-builder]: https://github.com/jenkinsci/js-builder
