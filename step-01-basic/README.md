@@ -4,7 +4,8 @@ Creating a basic Jenkins plugin is already well covered in the [Plugin Tutorial]
 This plugin ("step-01-basic") just adds a standard Jenkins "root action" page that contains
 a simple form.
 
-
+![root action](img/root-action.png)
+![root action page](img/root-action-page.png)
 
 At this point, we are ready to "nodeify" the plugin by adding some CommonJS JavaScript modules and,
 from them, create a browser-ready bundle that has everything it needs to function.
