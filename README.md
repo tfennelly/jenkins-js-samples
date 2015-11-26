@@ -1,11 +1,11 @@
 This repository provides some sample Jenkins Plugins, showing how to use [jenkins-js-builder] to build
 Jenkins plugins that support a richer UI through the use of Modularized JavaScript.
 
-The repository contains step-by-step example plugins, starting with <a href="tree/master/step-01-basic">step-01-basic</a>,
+The repository contains step-by-step example plugins, starting with <a href="../../tree/master/step-01-basic">step-01-basic</a>,
 which is just a simple Jenkins plugin that contains no JavaScript at all, working up through steps 02 and 03 etc,
 incrementally adding more JavaScript "features". 
 
-* <a href="tree/master/step-01-basic">step-01-basic</a>
+* <a href="../../tree/master/step-01-basic">step-01-basic</a>
 
 
 
