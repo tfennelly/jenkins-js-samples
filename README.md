@@ -1,3 +1,5 @@
+# jenkins-js Sample Plugins
+
 This repository provides some sample Jenkins Plugins, showing how to use [jenkins-js-builder] to build
 Jenkins plugins that support a richer UI through the use of Modularized JavaScript.
 
