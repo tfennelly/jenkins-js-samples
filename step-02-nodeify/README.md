@@ -79,8 +79,9 @@ builder.bundle('src/main/js/jslib-samples.js')
 ```
 
 The `builder.bundle` command is asking [jenkins-js-builder] to create a [bundle] (using [Browserify]) starting from
-`src/main/js/jslib-samples.js`, and to output the generate [bundle] file in `src/main/webapp/jsbundles`. The
-generated [bundle] file will be totally self contained and loadable in a browser.
+`src/main/js/jslib-samples.js`, and to output the generated [bundle] file in `src/main/webapp/jsbundles`. The
+generated [bundle] file will be totally self contained (containing a private copy of jQuery and anything else used by
+the App) and loadable in a browser.
  
 ## Build the JavaScript bundle for the Browser
 To build the [bundle], simple run:
@@ -132,6 +133,10 @@ Using this information from the previous section, it is easy to determine how to
 ## Test run
 At this stage, you should be able to take `step-02-nodeify` for a test run and see how the Modularized JavaScript
 behaves. You can do this by simply [running the plugin using the HPI plugin](https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial#Plugintutorial-DebuggingaPlugin).
+
+![root action page](img/root-action-page.png)
+
+As you can see, the [bundle] ran fine and used jQuery (contained in the [bundle]) to remove the left side-panel.
 
 <b><a href="../../../tree/master/step-01-basic">&lt;&lt; PREV (step-01-basic) &lt;&lt;</a>  |||  <a href="../../../tree/master/step-03-bootstrap">&gt;&gt; NEXT (step-03-bootstrap) &gt;&gt;</a></b>
 
