@@ -116,8 +116,9 @@ SUCCESS: 0 specs, 0 failures, 0 skipped, 0 disabled in 0s.
 ```
 
 As you can see from the log, the [bundle] will be generated in directory `src/main/webapp/jsbundles` as `jslib-samples.js`.
-This will put the bundle into the plugin's webapp dir, making it loadable at runtime. Of course could could also use
-a Stapler adjunct, but that's a funky if not needed.
+This will put the [bundle] into the plugin's webapp dir under `jsbundles`, making it loadable on the plugin path
+at runtime via `plugin/<plugin-name>/jsbundles/jslib-samples.js`. Of course could could also use
+a Stapler adjunct, but that's a bit funky if not needed.
 
 ## Add the JavaScript bundle to the .jelly page
 Using this information from the previous section, it is easy to determine how to load the [bundle] in Jenkins via the
