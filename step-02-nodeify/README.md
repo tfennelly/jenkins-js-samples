@@ -31,7 +31,7 @@ Use 'npm install <pkg> --save' afterwards to install a package and
 save it as a dependency in the package.json file.
 
 Press ^C at any time to quit.
-name: (acme)
+name: (step-02-nodeify)
 ```
 
 ## Add initial NPM packages
@@ -122,7 +122,7 @@ at runtime via `plugin/<plugin-name>/jsbundles/jslib-samples.js`. Of course coul
 a Stapler adjunct, but that's a bit funky if not needed.
 
 ## Add the JavaScript bundle to the .jelly page
-Using this information from the previous section, it is easy to determine how to load the [bundle] in Jenkins via the
+Using the information from the previous section, it's easy to determine how to load the [bundle] in Jenkins via the
 `.jelly` file. In this example we just use regular `<script>` tags, adding them to
 [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly).
 
@@ -138,6 +138,16 @@ behaves. You can do this by simply [running the plugin using the HPI plugin](htt
 
 As you can see, the [bundle] ran fine and used jQuery (contained in the [bundle]) to remove the left side-panel.
 
+## Integrate Gulp and Maven builds
+You will want to run the `gulp` build (to generate the [bundle]) as part of your plugin's Maven build. For that reason, 
+the `gulp` build needs to be integrated into `mvn` build cycle.
+
+If your plugin's parent POM is `org.jenkins-ci.plugins:plugins:1.639` or newer, no action is required. If your
+plugin depends on an older parent POM, then you will need to add the the maven `<profile>`s referred to in the
+[sample_extract_pom.xml](https://github.com/jenkinsci/js-builder/blob/master/res/sample_extract_pom.xml) in
+[Maven Integration](https://github.com/jenkinsci/js-builder#maven-integration) section of the [jenkins-js-builder] docs.
+
+<hr/>
 <b><a href="../../../tree/master/step-01-basic">&lt;&lt; PREV (step-01-basic) &lt;&lt;</a>  |||  <a href="../../../tree/master/step-03-bootstrap">&gt;&gt; NEXT (step-03-bootstrap) &gt;&gt;</a></b>
 
 [Node.js]: https://nodejs.org

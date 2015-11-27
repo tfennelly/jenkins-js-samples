@@ -9,6 +9,7 @@ a simple form.
 
 At this point, we are ready to "nodeify" the plugin by adding some [CommonJS] JavaScript modules.
 
+<hr/>
 <b><a href="../../../tree/master/step-02-nodeify">&gt;&gt; NEXT (step-02-nodeify) &gt;&gt;</a></b>
 
 [Plugin Tutorial]: https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
