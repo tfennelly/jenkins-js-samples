@@ -154,10 +154,10 @@ As you can see, the [bundle] ran fine and used jQuery (contained in the [bundle]
 
 ## Integrate Gulp and Maven builds
 You will want to run the `gulp` build (to generate the [bundle]) as part of your plugin's Maven build. For that reason, 
-the `gulp` build needs to be integrated into `mvn` build cycle.
+the `gulp` build needs to be integrated into the `mvn` build lifecycle.
 
 If your plugin's parent POM is `org.jenkins-ci.plugins:plugins:1.639` or newer, no action is required. If your
-plugin depends on an older parent POM, then you will need to add the the maven `<profile>`s referred to in the
+plugin depends on an older parent POM, then you will need to add the maven `<profile>`s referred to in the
 [sample_extract_pom.xml](https://github.com/jenkinsci/js-builder/blob/master/res/sample_extract_pom.xml) in
 [Maven Integration](https://github.com/jenkinsci/js-builder#maven-integration) section of the [jenkins-js-builder] docs.
 
