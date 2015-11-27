@@ -37,7 +37,10 @@
         </license>
     </licenses>
 
-    <!-- TODO: Move all of these profiles to a parent pom -->
+    <!-- 
+        The following profiles are only required if using parent POM
+        older than org.jenkins-ci.plugins:plugins:1.639
+    -->
     <profiles>
 
         <!--
@@ -225,7 +228,6 @@
                 </plugins>
             </build>
         </profile>
-
         <profile>
             <id>clean-node</id>
             <activation>
