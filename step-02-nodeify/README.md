@@ -1,5 +1,5 @@
 # Step 02 - Add CommonJS modules ("nodeify")
-The next step is to add some [CommonJS] modules to your plugin. We use [jenkins-js-builder] and some other [Node.js]
+The next step (`step-02-nodeify`) is to add some [CommonJS] modules to your plugin. We use [jenkins-js-builder] and some other [Node.js]
 tools to build a self contained browser-ready JavaScript "[bundle]" that can be loaded through your Jenkins `.jelly` files
 (or whatever mechanism works for your plugin).
 
