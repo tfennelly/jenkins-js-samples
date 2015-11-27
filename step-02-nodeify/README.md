@@ -6,17 +6,17 @@ tools to build a self contained browser-ready JavaScript "[bundle]" that can be 
 There are a few simple steps to adding [CommonJS] modules to your plugin.
 
 <p>
-<ul>
-    <a href="#install-nodejs-and-gulp">Install Node.js and Gulp</a><br/>
-    <a href="#add-packagejson">Add `package.json`</a><br/>
-    <a href="#add-initial-npm-packages">Add initial NPM packages</a><br/>
-    <a href="#add-first-commonjs-module">Add first CommonJS module</a><br/>
-    <a href="#add-gulpfilejs">Add `gulpfile.js`</a><br/>
-    <a href="#build-the-javascript-bundle-for-the-browser">Build the JavaScript bundle for the Browser</a><br/>
-    <a href="#add-the-javascript-bundle-to-the-jelly-page">Add the JavaScript bundle to the .jelly page</a><br/>
-    <a href="#test-run">Test run</a><br/>
-    <a href="#integrate-gulp-and-maven-builds">Integrate Gulp and Maven builds</a><br/>
-</ul>    
+<ol>
+    <li><a href="#install-nodejs-and-gulp">Install Node.js and Gulp</a><br/>
+    <li><a href="#add-packagejson">Add `package.json`</a><br/>
+    <li><a href="#add-initial-npm-packages">Add initial NPM packages</a><br/>
+    <li><a href="#add-first-commonjs-module">Add first CommonJS module</a><br/>
+    <li><a href="#add-gulpfilejs">Add `gulpfile.js`</a><br/>
+    <li><a href="#build-the-javascript-bundle-for-the-browser">Build the JavaScript bundle for the Browser</a><br/>
+    <li><a href="#add-the-javascript-bundle-to-the-jelly-page">Add the JavaScript bundle to the .jelly page</a><br/>
+    <li><a href="#test-run">Test run</a><br/>
+    <li><a href="#integrate-gulp-and-maven-builds">Integrate Gulp and Maven builds</a><br/>
+</ol>    
 </p>
  
 ## Install Node.js and Gulp 
