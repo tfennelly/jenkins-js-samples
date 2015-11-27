@@ -13,7 +13,7 @@ There are a few simple steps to adding [CommonJS] modules to your plugin:
 
 > __NOTE__ that [Node.js] and [Gulp] only needs to be installed on Dev machines so as to allow the running of node/npm/gulp etc commands while developing the plugin. A simple check out and build of your plugin (using maven) will NOT require [Node.js] to be installed on the build machine. The maven build will take care of everything.
 
-<b><a href="../../../tree/master/step-01-basic">&lt;&lt; PREV (step-01-basic)</a></b> <b style="float: right;"><a href="../../../tree/master/step-03-bootstrap">NEXT (step-03-bootstrap) &gt;&gt;</a></b>
+<b><a href="../../../tree/master/step-01-basic">&lt;&lt; PREV (step-01-basic) &lt;&lt;</a>  |||  <a href="../../../tree/master/step-03-bootstrap">&gt;&gt; NEXT (step-03-bootstrap) &gt;&gt;</a></b>
 
 [Node.js]: https://nodejs.org
 [Gulp]: https://github.com/gulpjs/gulp
