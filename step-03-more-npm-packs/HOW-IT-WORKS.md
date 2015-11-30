@@ -1,4 +1,4 @@
-# Step 03 - Use more NPM packages i.e. Twitter Bootstrap and Moment.js
+# Step 03 - Use more NPM packages i.e. Twitter Bootstrap and Moment.js - How it works
 `step-03-more-npm-packs` builds on <a href="../../../tree/master/step-02-nodeify">step-02-nodeify</a>, adding a few more
 NPM packages to the mix, namely Twitter Bootstrap (via [bootstrap-detached])
 and Moment.js. This is one of the major benefits of using [CommonJS] style packages; it means we can easily utilise
