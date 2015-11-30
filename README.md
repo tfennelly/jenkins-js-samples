@@ -7,7 +7,7 @@ The repository contains step-by-step example plugins, starting with <a href="../
 which is just a simple Jenkins plugin that contains no JavaScript at all, working up through steps 02 and 03 etc,
 incrementally adding more JavaScript "features". 
 
-## The Plugins
+## Step-by-step Plugins
 
 1. <b><a href="../../tree/master/step-01-basic">step-01-basic</a></b>: A very basic Jenkins plugin with no JavaScript.
 1. <b><a href="../../tree/master/step-02-nodeify">step-02-nodeify</a></b>: Update <a href="../../tree/master/step-01-basic">step-01-basic</a> to add a very simple jQuery based JavaScript App bundle (jQuery bundled).
