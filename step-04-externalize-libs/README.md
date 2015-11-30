@@ -79,7 +79,7 @@ and [momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs), and s
 
 The changes are simply to add the relevant `withExternalModuleMapping` [jenkins-js-builder] calls in `gulpfile.js`.
 
-```
+```diff
 @@ -1,8 +1,10 @@
  var builder = require('jenkins-js-builder');
  
