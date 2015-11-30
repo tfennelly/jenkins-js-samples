@@ -5,7 +5,7 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "jenkins-js-builder": "0.0.31"
+    "jenkins-js-builder": "0.0.33"
   },
   "dependencies": {
     "jquery-detached": "^2.1.4-v2"

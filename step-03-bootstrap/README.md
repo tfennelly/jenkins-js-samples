@@ -1,5 +1,7 @@
 # Step 03 - Use more NPM packages i.e. Twitter Bootstrap and Moment.js
-`step-03-bootstrap` simply adds a few more NPM packages to the mix, namely Twitter Bootstrap (via [bootstrap-detached]) and Moment.js.
+`step-03-bootstrap` simply adds a few more NPM packages to the mix, namely Twitter Bootstrap (via [bootstrap-detached])
+and Moment.js. This is one of the major benefits of using [CommonJS] style packages; it means we can easily utilise
+the huge number of JavaScript packages available in the NPM registry.
 
 ## Install/Uninstall NPM packages
 Install [bootstrap-detached] and Moment.js:
