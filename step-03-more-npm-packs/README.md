@@ -1,5 +1,5 @@
 # Step 03 - Use more NPM packages i.e. Twitter Bootstrap and Moment.js
-`step-03-bootstrap` simply adds a few more NPM packages to the mix, namely Twitter Bootstrap (via [bootstrap-detached])
+`step-03-more-npm-packs` simply adds a few more NPM packages to the mix, namely Twitter Bootstrap (via [bootstrap-detached])
 and Moment.js. This is one of the major benefits of using [CommonJS] style packages; it means we can easily utilise
 the huge number of JavaScript packages available in the NPM registry.
 
@@ -47,7 +47,7 @@ Of course in reality, you would not use a CDN for this. That's ok here though, b
 completely when we make the changes in <a href="../../../tree/master/step-04-externalize-libs">04-externalize-libs</a>.
 
 ## Test run
-Now take `step-03-bootstrap` for a test run and see the effect of these changes. 
+Now take `step-03-more-npm-packs` for a test run and see the effect of these changes. 
 Again, you can do this by simply [running the plugin using the HPI plugin](https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial#Plugintutorial-DebuggingaPlugin).
 
 ![root action page](img/root-action-page.png)

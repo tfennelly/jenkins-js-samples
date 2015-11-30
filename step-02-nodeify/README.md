@@ -162,7 +162,7 @@ plugin depends on an older parent POM, then you will need to add the maven `<pro
 [Maven Integration](https://github.com/jenkinsci/js-builder#maven-integration) section of the [jenkins-js-builder] docs.
 
 <hr/>
-<b><a href="../../../tree/master/step-01-basic">&lt;&lt; PREV (step-01-basic) &lt;&lt;</a>  |||  <a href="../../../tree/master/step-03-bootstrap">&gt;&gt; NEXT (step-03-bootstrap) &gt;&gt;</a></b>
+<b><a href="../../../tree/master/step-01-basic">&lt;&lt; PREV (step-01-basic) &lt;&lt;</a>  |||  <a href="../../../tree/master/step-03-more-npm-packs">&gt;&gt; NEXT (step-03-more-npm-packs) &gt;&gt;</a></b>
 
 [Node.js]: https://nodejs.org
 [Gulp]: https://github.com/gulpjs/gulp

@@ -1,7 +1,7 @@
 {
-  "name": "step-03-bootstrap",
+  "name": "step-03-more-npm-packs",
   "version": "1.0.0",
-  "description": "step-03-bootstrap",
+  "description": "step-03-more-npm-packs",
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.0",

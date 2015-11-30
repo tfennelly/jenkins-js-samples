@@ -1,10 +1,10 @@
 # Step 04 - Externalize Dependency Libraries (slim down)
-With `step-03-bootstrap`, we have a plugin using Modularized [CommonJS] style JavaScript, which is good. Using these
+With `step-03-more-npm-packs`, we have a plugin using Modularized [CommonJS] style JavaScript, which is good. Using
 [CommonJS] means we can easily use any of the huge number of JavaScript packages available in the NPM registry.
 
-This is great, but one of the issues with `step-03-bootstrap` is that its [bundle] contains everything it needs,
+This is great, but one of the issues with `step-03-more-npm-packs` is that its [bundle] contains everything it needs,
 including jQuery, Bootstrap, Moment.js and anything else we might add. This results in a quite bloated `.js` [bundle]
-for `step-03-bootstrap` - roughly 300Kb. If a given Jenkins page loads multiple `.js` bundles like this, it will
+for `step-03-more-npm-packs` - roughly 300Kb. If a given Jenkins page loads multiple `.js` bundles like this, it will
 potentially result in multiple jQuery instances (and Bootstrap, Moment.js etc) being loaded. What we really want in
 this kind of situations is to have slimmer/lighter "App" bundles, all sharing the same jQuery etc.
 
