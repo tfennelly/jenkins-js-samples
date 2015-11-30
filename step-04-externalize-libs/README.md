@@ -93,6 +93,9 @@ The changes are simply to add the relevant `withExternalModuleMapping` [jenkins-
         .inDir('src/main/webapp/jsbundles');
 ```
 
+[See jenkins-js-builder docs for more on withExternalModuleMapping](https://github.com/jenkinsci/js-builder#step-4-optional-specify-external-module-mappings-imports).
+Get the bundle QName ("bootstrap:bootstrap3" etc) from the relevant pages on [jenkins-js-libs]. 
+
 ## Test run
 Now take `step-04-externalize-libs` for a test run and see the effect of these changes. What you'll see is that
 nothing has changed visually i.e. still works the same time a user perspective. The difference is in HOW it works.
