@@ -1,6 +1,6 @@
 # Step 01 - A "basic" Plugin
-A basic Jenkins plugin with just adds a standard Jenkins "root action" page that contains
-a simple form.
+A basic Jenkins plugin with just a standard Jenkins "root action" page that contains
+a simple form. This plugin is the foundation for all other sample plugins in this repo.
 
 <p>
 <ol>
