@@ -1,5 +1,5 @@
 # Step 02 - Add CommonJS modules ("nodeify")
-The next step (`step-02-nodeify`) builds on top of <a href="../../../tree/master/step-01-basic">step-01-basic</a>,
+The plugin in this step (`step-02-nodeify`) builds on top of <a href="../../../tree/master/step-01-basic">step-01-basic</a>,
 adding some [CommonJS] modules.
 
 <p>
