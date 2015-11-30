@@ -2,13 +2,21 @@
 A basic Jenkins plugin with just adds a standard Jenkins "root action" page that contains
 a simple form.
 
+<p>
+<ol>
+    <li><a href="#how-to-run">How to run</a><br/>
+    <li><a href="HOW-IT-WORKS.md">How it works</a><br/>
+</ol>    
+</p>
+
 ## How to run
-The easiest way to run this Jenkins plugin to [use standard Maven HPI plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial#Plugintutorial-DebuggingaPlugin).
+The easiest way to run this Jenkins plugin is to [use the standard Maven HPI plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial#Plugintutorial-DebuggingaPlugin).
 
 ```sh
-$ export MAVEN_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,address=8000,suspend=n"
 $ mvn hpi:run
 ```
+
+On running the plugin, you will see the following screens.
 
 ![root action](img/root-action.png)
 ![root action page](img/root-action-page.png)
