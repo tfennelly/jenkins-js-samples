@@ -99,7 +99,7 @@ Get the bundle QName ("bootstrap:bootstrap3" etc) from the relevant pages on [je
 
 ## Test run
 Now take `step-04-externalize-libs` for a test run and see the effect of these changes. What you'll see is that
-nothing has changed visually i.e. still works the same time a user perspective. The difference is in HOW it works.
+nothing has changed visually i.e. still works the same from a user perspective. The difference is in HOW it works.
 
 The `jslib-samples.js` [bundle] no longer contains [bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap),
 [momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs) and 
