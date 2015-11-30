@@ -31,9 +31,17 @@ The easiest way to run this Jenkins plugin is to [use the standard Maven HPI plu
 $ mvn hpi:run
 ```
 
-Nothing visual changes from <a href="../../../tree/master/step-03-more-npm-packs">step-03-more-npm-packs</a> to this plugin.  
+Nothing visual changes from <a href="../../../tree/master/step-03-more-npm-packs">step-03-more-npm-packs</a> to this plugin.
 The only difference is in <a href="HOW-IT-WORKS.md">how it works</a>, specifically in how it loads JavaScript dependency
-libraries.  
+libraries.
+
+The easiest way to see this is through the Browsers Developer Tools.
+ 
+![browser loading](img/browser-loading.png)
+
+`jslib-samples.js` triggers the loading of `bootstrap3.js` and `momentjs2.js`. In turn, `bootstrap3.js` has a
+dependency on [jquery-detached](https://github.com/jenkinsci/js-libs/tree/master/jquery-detached), resulting in the
+loading of `jquery2.js`.  
 
 ## How it works
 
