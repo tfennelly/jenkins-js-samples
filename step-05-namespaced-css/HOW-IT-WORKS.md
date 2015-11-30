@@ -24,7 +24,6 @@ Changes to `gulpfile.js`:
 Changes to [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly):
 
 ```diff
- <?jelly escape-by-default='true'?>
  <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:s="/lib/form">
      <l:layout title="Jenkins JS Lib Samples" norefresh="true">
          <l:main-panel>
@@ -32,7 +31,18 @@ Changes to [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples
              <h1>Jenkins JS Samples</h1>
              <h4 class="time"></h4>
              <form>
- @@ -44,10 +45,10 @@ THE SOFTWARE.
+                 <div class="form-group">
+                     <label for="exampleInputEmail1">Email address</label>
+                     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"></input>
+                 </div>
+                 <div class="form-group">
+                     <label for="exampleInputPassword1">Password</label>
+                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"></input>
+                 </div>
+                 <div class="checkbox">
+                     <label>
+                         <input type="checkbox">Check me out</input>
+                     </label>
                  </div>
                  <button type="submit" class="btn btn-default">Submit</button>
              </form>
