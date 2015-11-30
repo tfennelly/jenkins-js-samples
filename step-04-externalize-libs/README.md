@@ -28,7 +28,7 @@ $ npm install --save jenkins-js-modules
 ## Add HPI plugin dependencies
 Because we are changing the `step-04-externalize-libs` app [bundle] to load its external dependencies (bootstrap and 
 momentjs) from HPI plugins (using [jenkins-js-modules]), we need to add maven dependencies on those HPI plugins so as to
-ensure they get installed/loaded in Jenkins at runtime.
+ensure they get installed/loaded in Jenkins at runtime (and so are available for loading to the UI at runtime).
 
 So, change the `pom.xml` to add dependencies on the [bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap)
 and [momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs) HPI plugins:
@@ -72,21 +72,43 @@ and [momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs) HPI pl
  </project>
 ```
 
-## Install NPM packages
-Install [bootstrap-detached] and Moment.js:
+## Configure Node build to load external dependencies
+The last step is to modify `gulpfile.js`, telling the [bundle] process link in [bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap)
+and [momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs), and so NOT include them in the generated [bundle]
+(making it considerably smaller etc).
 
-```sh
-$ npm install --save bootstrap-detached moment
+The changes are simply to add the relevant `withExternalModuleMapping` [jenkins-js-builder] calls in `gulpfile.js`.
+
+```
+@@ -1,8 +1,10 @@
+ var builder = require('jenkins-js-builder');
+ 
+ //
+ // Bundle the modules.
+ // See https://github.com/tfennelly/jenkins-js-builder
+ //
+ builder.bundle('src/main/js/jslib-samples.js')
++       .withExternalModuleMapping('bootstrap-detached', 'bootstrap:bootstrap3')
++       .withExternalModuleMapping('moment', 'momentjs:momentjs2')
+        .inDir('src/main/webapp/jsbundles');
 ```
 
-Since we are using [bootstrap-detached], we can uninstall [jquery-detached]:
+## Test run
+Now take `step-04-externalize-libs` for a test run and see the effect of these changes. What you'll see is that
+nothing has changed visually i.e. still works the same time a user perspective. The difference is in HOW it works.
 
-```sh
-$ npm uninstall --save jquery-detached
-```
+The `jslib-samples.js` [bundle] no longer contains [bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap),
+[momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs) and 
+[jquery](https://github.com/jenkinsci/js-libs/tree/master/jquery-detached). Instead, it loads the dependencies at runtime
+from the [jenkins-js-libs] HPI plugins.
+ 
+The easiest way to see this is through the Browsers Developer Tools.
+ 
+![browser loading](img/browser-loading.png)
 
-## Update 
-
+Using [jenkins-js-modules], `jslib-samples.js` triggers the loading of `bootstrap3.js` and `momentjs2.js` from their
+[jenkins-js-libs] HPI plugins. In turn, `bootstrap3.js` has a dependency on
+[jquery-detached](https://github.com/jenkinsci/js-libs/tree/master/jquery-detached), resulting in the loading of `jquery2.js`.
 
 <hr/>
 <b><a href="../../../tree/master/step-02-nodeify">&lt;&lt; PREV (step-02-nodeify) &lt;&lt;</a>  |||  <a href="../../../tree/master/step-04-externalize-libs">&gt;&gt; NEXT (04-externalize-libs) &gt;&gt;</a></b>
