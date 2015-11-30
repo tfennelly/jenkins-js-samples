@@ -26,7 +26,9 @@ On running the plugin, you will see the following screens.
 <a href="HOW-IT-WORKS.md"><img src="../img/how-it-works.png" /></a>
 
 <hr/>
+<p align="center">
 <b><a href="../../../tree/master/step-02-nodeify">&gt;&gt; NEXT (step-02-nodeify) &gt;&gt;</a></b>
+</p>
 
 [Plugin Tutorial]: https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
 [jenkins-js-builder]: https://github.com/jenkinsci/js-builder
