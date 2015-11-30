@@ -1,4 +1,4 @@
-# Step 04 - Externalize Dependency Libraries (slim down)
+# Step 04 - Externalize Dependency Libraries (slim down) - How it Works
 With `step-03-more-npm-packs`, we have a plugin using Modularized [CommonJS] style JavaScript, which is good. Using
 [CommonJS] means we can easily use any of the huge number of JavaScript packages available in the NPM registry.
 
