@@ -41,7 +41,12 @@ The easiest way to see this is through the Browsers Developer Tools.
 
 `jslib-samples.js` triggers the loading of `bootstrap3.js` and `momentjs2.js`. In turn, `bootstrap3.js` has a
 dependency on [jquery-detached](https://github.com/jenkinsci/js-libs/tree/master/jquery-detached), resulting in the
-loading of `jquery2.js`.  
+loading of `jquery2.js`.
+  
+The main point here is that if you have a Jenkins page that loads multiple [bundle]s, many of which are loading common
+dependencies such as jQuery, Bootstrap etc, then you only need to load those dependencies once and share then between the
+different [bundle]s. And of course, the [bundle]s themselves are considerably lighter because they no longer contain
+these dependencies.
 
 ## How it works
 
