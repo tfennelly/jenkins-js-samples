@@ -44,8 +44,7 @@ the main one being that we added a CDN link to use the bootstrap styles:
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" ></link>
 ```
 
-Of course in reality, you would not use a CDN for this. That's ok here though, because we will be removing this
-completely when we make the changes in <a href="../../../tree/master/step-04-externalize-libs">04-externalize-libs</a>.
+Of course in reality, you would not use a CDN for this. That's ok here though, since it's just a sample.
 
 ## Test run
 Now take `step-03-more-npm-packs` for a test run and see the effect of these changes. 
