@@ -1,13 +1,13 @@
 # Step 01 - A "basic" Plugin - How it Works
 Creating a basic Jenkins plugin is already well covered in the [Plugin Tutorial] on the wiki.
 
-There's really nothing much to this plugin. It's just a standard Jenkins plugin with nothing extra. It acts as the foundation
-for the other sample plugins in this repository.
+There's really nothing much to this first Jenkins plugin in this repo. It's just a standard Jenkins plugin with
+nothing extra. It acts as the foundation for the other sample plugins in this repository.
 
 This plugin ("step-01-basic") just adds a standard Jenkins "root action" page that contains
 a simple form.
 
-On running the plugin, you will see the following screens.
+On running the plugin (`mvn hpi:run`), you will see the following screens.
 
 ![root action](img/root-action.png)
 ![root action page](img/root-action-page.png)
