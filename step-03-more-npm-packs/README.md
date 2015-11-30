@@ -18,7 +18,7 @@ The easiest way to run this Jenkins plugin is to [use the standard Maven HPI plu
 $ mvn hpi:run
 ```
 
-On running the plugin, you will see the following screen. The main change visual change from 
+On running the plugin, you will see the following screen. The main change from 
 <a href="../../../tree/master/step-02-nodeify">step-02-nodeify</a> is the fact that the sample is utilizing
 bootstrap and moment.js (see <a href="HOW-IT-WORKS.md">how it works</a>).  
 
