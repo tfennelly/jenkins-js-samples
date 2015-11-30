@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jenkins-ci.ui.samples</groupId>
+        <artifactId>jenkins-js-samples</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../</relativePath>
+    </parent>
+    <artifactId>step-05-namespaced-css</artifactId>
+    <version>1.0</version>
+    <packaging>hpi</packaging>
+
+    <name>JS Lib Samples: Step 5 - Namespaced CSS</name>
+    <description>A sample that uses a namespaced CSS for Bootstrap</description>
+    
+    <dependencies>
+        <!-- Load the framework libs from plugins Vs bundling them in an uber-bundle. -->
+        <dependency>
+            <groupId>org.jenkins-ci.ui</groupId>
+            <artifactId>bootstrap</artifactId>
+            <version>1.2</version>
+            <type>hpi</type>
+        </dependency>
+        <dependency>
+            <groupId>org.jenkins-ci.ui</groupId>
+            <artifactId>momentjs</artifactId>
+            <version>1.0</version>
+            <type>hpi</type>            
+        </dependency>
+    </dependencies>
+
+</project>

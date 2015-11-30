@@ -41,7 +41,7 @@ these dependencies.
 
 <hr/>
 <p align="center">
-<b><a href="../../../tree/master/step-03-more-npm-packs">&lt;&lt; PREV (step-03-more-npm-packs) &lt;&lt;</a></b>
+<b><a href="../../../tree/master/step-03-more-npm-packs">&lt;&lt; PREV (step-03-more-npm-packs) &lt;&lt;</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <a href="../../../tree/master/step-05-namespaced-css">&gt;&gt; NEXT (step-05-namespaced-css) &gt;&gt;</a></b>
 </p>
 
 [Node.js]: https://nodejs.org
