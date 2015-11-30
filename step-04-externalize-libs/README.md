@@ -1,21 +1,8 @@
 # Step 04 - Externalize Dependency Libraries (slim down)
-With `step-03-more-npm-packs`, we have a plugin using Modularized [CommonJS] style JavaScript, which is good. Using
-[CommonJS] means we can easily use any of the huge number of JavaScript packages available in the NPM registry.
-
-This is great, but one of the issues with `step-03-more-npm-packs` is that its [bundle] contains everything it needs,
-including jQuery, Bootstrap, Moment.js and anything else we might add. This results in a quite bloated `.js` [bundle]
-for `step-03-more-npm-packs` - roughly 300Kb. If a given Jenkins page loads multiple `.js` bundles like this, it will
-potentially result in multiple jQuery instances (and Bootstrap, Moment.js etc) being loaded. What we really want in
-this kind of situations is to have slimmer/lighter "App" bundles, all sharing the same jQuery etc.
-
-In `step-04-externalize-libs`, we build on top of <a href="../../../tree/master/step-03-more-npm-packs">step-03-more-npm-packs</a>,
-using [jenkins-js-modules] to load HPI bundled versions of [bootstrap-detached]
+In this plugin (`step-04-externalize-libs`), we build on top of <a href="../../../tree/master/step-03-more-npm-packs">step-03-more-npm-packs</a>,
+changing it to load HPI bundled versions of [bootstrap-detached]
 and Moment.js. This means that `step-04-externalize-libs`s `.js` [bundle] will no longer include these dependencies
-and it's size will reduce to less than 30Kb (as opposed to 300Kb). Note that this change should not require app `.js`
-code changes. The only changes should be in how we build the app [bundle].
-
-[jenkins-js-libs] contains HPI bundled versions of [bootstrap-detached] etc. Browse around [jenkins-js-libs] and take
-note of what's currently available. We will be adding more over time. 
+and it's size will reduce to less than 30Kb (as opposed to 300Kb).
 
 <p>
 <ol>
