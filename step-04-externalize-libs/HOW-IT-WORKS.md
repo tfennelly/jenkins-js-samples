@@ -74,7 +74,7 @@ and [momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs) HPI pl
 ```
 
 ## Configure Node build to load external dependencies
-The last step is to modify `gulpfile.js`, telling the [bundle] process link in [bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap)
+The last step is to modify `gulpfile.js`, telling the [bundle] process to "link" in [bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap)
 and [momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs), and so NOT include them in the generated [bundle]
 (making it considerably smaller etc).
 
