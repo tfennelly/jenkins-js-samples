@@ -18,9 +18,9 @@ The easiest way to run this Jenkins plugin is to [use the standard Maven HPI plu
 $ mvn hpi:run
 ```
 
-On running the plugin, you will see the following screen. Nothing much has visually changed from
-<a href="../../../tree/master/step-01-basic">step-01-basic</a>, apart from the fact that some Modularized
-JavaScript has run (see <a href="HOW-IT-WORKS.md">How it works</a>) which removed the left side-panel.  
+On running the plugin, you will see the following screen. The main change visual change from 
+<a href="../../../tree/master/step-02-nodeify">step-02-nodeify</a> is the fact that the sample is utilizing
+bootstrap and moment.js (see <a href="HOW-IT-WORKS.md">how it works</a>).  
 
 ![root action page](img/root-action-page.png)
 

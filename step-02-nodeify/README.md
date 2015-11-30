@@ -18,7 +18,7 @@ $ mvn hpi:run
 
 On running the plugin, you will see the following screen. Nothing much has visually changed from
 <a href="../../../tree/master/step-01-basic">step-01-basic</a>, apart from the fact that some Modularized
-JavaScript has run (see <a href="HOW-IT-WORKS.md">How it works</a>) which removed the left side-panel.  
+JavaScript has run (see <a href="HOW-IT-WORKS.md">how it works</a>) which removed the left side-panel.  
 
 ![root action page](img/root-action-page.png)
 
