@@ -1,7 +1,50 @@
 # Step 05 - "Namespaced" CSS - How it works
 In this plugin (`step-05-namespaced-css`), we modify <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a>
-a little so as to [use the default "namespaced" CSS for Twitter Bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap#css-namespacing).
+a little so as to use [the default "namespaced" CSS for Twitter Bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap#css-namespacing).
 
+## Changes to `gulpfile.js` and `index.jelly`
+Switching to use [the default "namespaced" CSS for Twitter Bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap#css-namespacing) is easy enough.
+
+Changes to `gulpfile.js`:
+
+```diff
+ var builder = require('jenkins-js-builder');
+ 
+ //
+ // Bundle the modules.
+ // See https://github.com/jenkinsci/js-builder
+ //
+ builder.bundle('src/main/js/jslib-samples.js')
+-       .withExternalModuleMapping('bootstrap-detached', 'bootstrap:bootstrap3')
++       .withExternalModuleMapping('bootstrap-detached', 'bootstrap:bootstrap3', {addDefaultCSS: true})
+        .withExternalModuleMapping('moment', 'momentjs:momentjs2')
+        .inDir('src/main/webapp/jsbundles');
+```
+
+Changes to [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly):
+
+```diff
+ <?jelly escape-by-default='true'?>
+ <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:s="/lib/form">
+     <l:layout title="Jenkins JS Lib Samples" norefresh="true">
+         <l:main-panel>
++            <div class="bootstrap-3">
+             <h1>Jenkins JS Samples</h1>
+             <h4 class="time"></h4>
+             <form>
+ @@ -44,10 +45,10 @@ THE SOFTWARE.
+                 </div>
+                 <button type="submit" class="btn btn-default">Submit</button>
+             </form>
++            </div>
+         </l:main-panel>
+     </l:layout>
+     
+     <!-- Add the bundle that's been generated into the webapp/jsbundles folder (by the gulpfile.js) -->
+     <script src="../plugin/step-05-namespaced-css/jsbundles/jslib-samples.js" type="text/javascript"></script>
+-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" ></link>
+ </j:jelly>
+```
 
 <hr/>
 <p align="center">
