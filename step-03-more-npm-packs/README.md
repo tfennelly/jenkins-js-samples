@@ -29,7 +29,9 @@ bootstrap and moment.js (see <a href="HOW-IT-WORKS.md">how it works</a>).
 <a href="HOW-IT-WORKS.md"><img src="../img/how-it-works.png" /></a>
 
 <hr/>
-<b><a href="../../../tree/master/step-02-nodeify">&lt;&lt; PREV (step-02-nodeify) &lt;&lt;</a>  |||  <a href="../../../tree/master/step-04-externalize-libs">&gt;&gt; NEXT (04-externalize-libs) &gt;&gt;</a></b>
+<p align="center">
+<b><a href="../../../tree/master/step-02-nodeify">&lt;&lt; PREV (step-02-nodeify) &lt;&lt;</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <a href="../../../tree/master/step-04-externalize-libs">&gt;&gt; NEXT (04-externalize-libs) &gt;&gt;</a></b>
+</p>
 
 [Node.js]: https://nodejs.org
 [Gulp]: https://github.com/gulpjs/gulp
