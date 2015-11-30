@@ -54,7 +54,9 @@ Again, you can do this by simply [running the plugin using the HPI plugin](https
 ![root action page](img/root-action-page.png)
 
 <hr/>
-<b><a href="../../../tree/master/step-02-nodeify">&lt;&lt; PREV (step-02-nodeify) &lt;&lt;</a>  |||  <a href="../../../tree/master/step-04-externalize-libs">&gt;&gt; NEXT (04-externalize-libs) &gt;&gt;</a></b>
+<p align="center">
+<b><a href="../../../tree/master/step-02-nodeify">&lt;&lt; PREV (step-02-nodeify) &lt;&lt;</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <a href="../../../tree/master/step-04-externalize-libs">&gt;&gt; NEXT (04-externalize-libs) &gt;&gt;</a></b>
+</p>
 
 [Node.js]: https://nodejs.org
 [Gulp]: https://github.com/gulpjs/gulp

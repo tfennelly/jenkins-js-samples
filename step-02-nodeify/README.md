@@ -27,7 +27,9 @@ JavaScript has run (see <a href="HOW-IT-WORKS.md">how it works</a>) which remove
 <a href="HOW-IT-WORKS.md"><img src="../img/how-it-works.png" /></a>
 
 <hr/>
-<b><a href="../../../tree/master/step-01-basic">&lt;&lt; PREV (step-01-basic) &lt;&lt;</a>  |||  <a href="../../../tree/master/step-03-more-npm-packs">&gt;&gt; NEXT (step-03-more-npm-packs) &gt;&gt;</a></b>
+<p align="center">
+<b><a href="../../../tree/master/step-01-basic">&lt;&lt; PREV (step-01-basic) &lt;&lt;</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <a href="../../../tree/master/step-03-more-npm-packs">&gt;&gt; NEXT (step-03-more-npm-packs) &gt;&gt;</a></b>
+</p>
 
 [Node.js]: https://nodejs.org
 [Gulp]: https://github.com/gulpjs/gulp

@@ -15,7 +15,9 @@ On running the plugin (`mvn hpi:run`), you will see the following screens.
 At this point, we are ready to "nodeify" the plugin by adding some [CommonJS] JavaScript modules.
 
 <hr/>
+<p align="center">
 <b><a href="../../../tree/master/step-02-nodeify">&gt;&gt; NEXT (step-02-nodeify) &gt;&gt;</a></b>
+</p>
 
 [Plugin Tutorial]: https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
 [jenkins-js-builder]: https://github.com/jenkinsci/js-builder

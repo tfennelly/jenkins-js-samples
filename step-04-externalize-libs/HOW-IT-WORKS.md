@@ -115,7 +115,9 @@ Using [jenkins-js-modules], `jslib-samples.js` triggers the loading of `bootstra
 [jquery-detached](https://github.com/jenkinsci/js-libs/tree/master/jquery-detached), resulting in the loading of `jquery2.js`.
 
 <hr/>
+<p align="center">
 <b><a href="../../../tree/master/step-03-more-npm-packs">&lt;&lt; PREV (step-03-more-npm-packs) &lt;&lt;</a></b>
+</p>
 
 [Node.js]: https://nodejs.org
 [Gulp]: https://github.com/gulpjs/gulp
