@@ -59,7 +59,7 @@ and [momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs) HPI pl
 +        <dependency>
 +            <groupId>org.jenkins-ci.ui</groupId>
 +            <artifactId>bootstrap</artifactId>
-+            <version>1.1</version>
++            <version>1.2</version>
 +            <type>hpi</type>
 +        </dependency>
 +        <dependency>
