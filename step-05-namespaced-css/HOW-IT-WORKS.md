@@ -2,10 +2,15 @@
 In this plugin (`step-05-namespaced-css`), we modify <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a>
 a little so as to use [the default "namespaced" CSS for Twitter Bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap#css-namespacing).
 
-## Changes to `gulpfile.js` and `index.jelly`
-Switching to use [the default "namespaced" CSS for Twitter Bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap#css-namespacing) is easy enough.
+Namespacing the CSS rules makes it safer to use multiple versions of the same CSS lib on the same page. So if, for example, you are
+using bootstrap on a widget that gets added to a page on which other plugins are contributing content (e.g. the Job index page),
+then it makes sense to use a namespaced CSS for bootstrap in case another widget also uses bootstrap, but is using a different version.
 
-Changes to `gulpfile.js`:
+## Changes to `gulpfile.js` and `index.jelly`
+You can create and use your own namespaced CSS, but the bootstrap bundle comes with a
+[default namespaced CSS](https://github.com/jenkinsci/js-libs/tree/master/bootstrap#css-namespacing) and using it is trivial.
+
+Simply set the `addDefaultCSS` option on the `withExternalModuleMapping` call in the `gulpfile.js`:
 
 ```diff
  var builder = require('jenkins-js-builder');
@@ -21,7 +26,8 @@ Changes to `gulpfile.js`:
         .inDir('src/main/webapp/jsbundles');
 ```
 
-Changes to [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly):
+And modify [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly) to "namespace" the content
+using `<div class="bootstrap-3">`, as well as removing the CDN `<script>` element for bootstrap:
 
 ```diff
  <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:s="/lib/form">
