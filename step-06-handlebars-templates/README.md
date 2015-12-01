@@ -5,7 +5,7 @@ changing it to apply client-side templates using the [Handlebars] templating eng
 With this model, we change from the "traditional" pure server-side content rendering approach of Jenkins (in `.jelly` files),
 to an approach where just the bare minimum content is rendered server-side, and the reset of the content is rendered on
 the client-side e.g. the client-side makes a REST API call to get some data from the server and then applies a template
-to that data to produce hte view content. This approach is fundamental to creating a more dynamic/slick user experience
+to that data to produce the view content. This approach is fundamental to creating a more dynamic/slick user experience
 (Vs full page reloading etc). 
 
 <p>
