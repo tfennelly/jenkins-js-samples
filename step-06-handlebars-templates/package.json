@@ -1,7 +1,7 @@
 {
-  "name": "step-05-namespaced-css",
+  "name": "step-06-handlebars-templates",
   "version": "1.0.0",
-  "description": "step-05-namespaced-css",
+  "description": "step-06-handlebars-templates",
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.0",

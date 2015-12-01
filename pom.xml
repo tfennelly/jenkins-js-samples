@@ -22,7 +22,8 @@
         <module>step-02-nodeify</module>
         <module>step-03-more-npm-packs</module>
         <module>step-04-externalize-libs</module>
-        <module>step-05-namespaced-css</module>        
+        <module>step-05-namespaced-css</module>
+        <module>step-06-handlebars-templates</module>
     </modules>
 
     <properties>
