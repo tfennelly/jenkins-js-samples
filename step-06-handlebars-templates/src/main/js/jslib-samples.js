@@ -5,8 +5,13 @@ $(document).ready(function () {
     $('#side-panel').remove();
     $('#main-panel').css('margin-left', '0px');
     
-    // Add some code to use momentjs, adding formatted time text to the page.
-    // See src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly.
     var moment = require('moment');
-    $('#main-panel .time').text(moment().format("MMM Do YY"));
+    var formTemplate = require('./templates/form.hbs');    
+
+    // Apply the 'form' template, appending the resulting content to
+    // the 'form-container' element. We could also define a Handlers helper
+    // to handle the formatted time.
+    $('#form-container').append(formTemplate({
+        time: moment().format("MMM Do YY")
+    }));
 });

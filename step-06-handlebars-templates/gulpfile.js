@@ -7,4 +7,5 @@ var builder = require('jenkins-js-builder');
 builder.bundle('src/main/js/jslib-samples.js')
        .withExternalModuleMapping('bootstrap-detached', 'bootstrap:bootstrap3')
        .withExternalModuleMapping('moment', 'momentjs:momentjs2')
+       .withExternalModuleMapping('handlebars', 'handlebars:handlebars3')
        .inDir('src/main/webapp/jsbundles');
