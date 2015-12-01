@@ -122,7 +122,7 @@ and replace with a simple `<div id="form-container"></div>` holder element; agai
 ```
 
 ## Modify `jslib-samples.js` to use Handlerbars
-We modified [jslib-samples.js](src/main/js/jslib-samples.js) to use the `form.hbs` [Handlerbars] template, injecting the
+We modified [jslib-samples.js](src/main/js/jslib-samples.js) to use the `form.hbs` [Handlebars] template, injecting the
 Moment.js generated `time` value into the template (remember the `{{time}}` tokens in `form.hbs`).
 
 ```diff
