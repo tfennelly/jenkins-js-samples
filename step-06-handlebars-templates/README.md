@@ -1,10 +1,12 @@
-# Step 05 - "Namespaced" CSS
-In this plugin (`step-05-namespaced-css`), we modify <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a>
-a little so as to [use the default "namespaced" CSS for Twitter Bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap#css-namespacing).
+# Step 06 - Handlebars Templates
+In this plugin (`step-06-handlebars-templates`), we build on <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a>,
+changing it to apply client-side templates using the [Handlebars] templating engine.
 
-Namespacing the CSS rules makes it safer to use multiple versions of the same CSS lib on the same page. So if, for example, you are
-using bootstrap on a widget that gets added to a page on which other plugins are contributing content (e.g. the Job index page),
-then it makes sense to use a namespaced CSS for bootstrap in case another widget also uses bootstrap, but is using a different version.
+With this model, we change from the "traditional" pure server-side content rendering approach of Jenkins (in `.jelly` files),
+to an approach where just the bare minimum content is rendered server-side, and the reset of the content is rendered on
+the client-side e.g. the client-side makes a REST API call to get some data from the server and then applies a template
+to that data to produce hte view content. This approach is fundamental to creating a more dynamic/slick user experience
+(Vs full page reloading etc). 
 
 <p>
 <ol>
@@ -21,7 +23,8 @@ $ mvn hpi:run
 ```
 
 Again, nothing visual changes from <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a> to this plugin.
-The only difference is in <a href="HOW-IT-WORKS.md">how it works</a>, specifically in how the default namespaced CSS is auto-loaded and used.
+The only difference is in <a href="HOW-IT-WORKS.md">how it works</a>, specifically in how the form content is rendered on the client-side
+using [Handlebars] templates.
 
 ## How it works
 
@@ -29,9 +32,10 @@ The only difference is in <a href="HOW-IT-WORKS.md">how it works</a>, specifical
 
 <hr/>
 <p align="center">
-<b><a href="../../../tree/master/step-04-externalize-libs">&lt;&lt; PREV (step-04-externalize-libs) &lt;&lt;</a></b>
+<b><a href="../../../tree/master/step-05-namespaced-css">&lt;&lt; PREV (step-05-namespaced-css) &lt;&lt;</a></b>
 </p>
 
+[Handlebars]: http://handlebarsjs.com/
 [Node.js]: https://nodejs.org
 [Gulp]: https://github.com/gulpjs/gulp
 [jenkins-js-builder]: https://github.com/jenkinsci/js-builder

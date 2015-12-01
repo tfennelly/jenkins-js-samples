@@ -64,7 +64,7 @@ using `<div class="bootstrap-3">`, as well as removing the CDN `<script>` elemen
 
 <hr/>
 <p align="center">
-<b><a href="../../../tree/master/step-04-externalize-libs">&lt;&lt; PREV (step-04-externalize-libs) &lt;&lt;</a></b>
+<b><a href="../../../tree/master/step-04-externalize-libs">&lt;&lt; PREV (step-04-externalize-libs) &lt;&lt;</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <a href="../../../tree/master/step-06-handlebars-templates">&gt;&gt; NEXT (step-06-handlebars-templates) &gt;&gt;</a></b>
 </p>
 
 [Node.js]: https://nodejs.org

@@ -29,7 +29,7 @@ The only difference is in <a href="HOW-IT-WORKS.md">how it works</a>, specifical
 
 <hr/>
 <p align="center">
-<b><a href="../../../tree/master/step-04-externalize-libs">&lt;&lt; PREV (step-04-externalize-libs) &lt;&lt;</a></b>
+<b><a href="../../../tree/master/step-04-externalize-libs">&lt;&lt; PREV (step-04-externalize-libs) &lt;&lt;</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <a href="../../../tree/master/step-06-handlebars-templates">&gt;&gt; NEXT (step-06-handlebars-templates) &gt;&gt;</a></b>
 </p>
 
 [Node.js]: https://nodejs.org
