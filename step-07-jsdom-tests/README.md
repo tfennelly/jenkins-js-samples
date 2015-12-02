@@ -3,7 +3,7 @@
 useful for writing unit tests.
   
 In this sample plugin, we modified <a href="../../../tree/master/step-06-handlebars-templates">step-06-handlebars-templates</a>
-the UI a little so as the make it a small bit more interactive. We then added a simple unit test that used [jsdom]
+a little so as the make it a small bit more interactive. We then added a simple unit test that used [jsdom]
 (via [jenkins-js-test]). 
 
 ## How to run

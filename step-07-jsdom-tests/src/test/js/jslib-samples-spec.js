@@ -7,7 +7,7 @@ describe("jslib-samples.js", function () {
 
     it("- test", function (done) {
         
-        // Create a "fake" page with the same button as is on the real page then the plugin
+        // Create a "fake" page with the same button as is on the real page when the plugin
         // is run in Jenkins.
         var PAGE = '<html><head></head><body><button id="submit-details" type="button" class="btn btn-lg btn-danger">Click to submit details</button></body></html>';
         
@@ -37,6 +37,7 @@ describe("jslib-samples.js", function () {
             // Make sure the submit-details-go button is no longer visible
             expect($('#submit-details-go').length).toBe(0);
             
+            // Calling done tells Jasmine that the test is complete.
             done();
         }, PAGE);
     });
