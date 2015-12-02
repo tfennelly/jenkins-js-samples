@@ -4,7 +4,7 @@ useful for writing unit tests.
   
 In this sample plugin, we modified <a href="../../../tree/master/step-06-handlebars-templates">step-06-handlebars-templates</a>
 a little so as the make it a small bit more interactive. We then added a simple unit test that used [jsdom]
-(via [jenkins-js-test]). 
+ (via [jenkins-js-test]). 
 
 ## How to run
 The easiest way to run this Jenkins plugin is to [use the standard Maven HPI plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial#Plugintutorial-DebuggingaPlugin).
