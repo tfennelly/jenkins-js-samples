@@ -27,7 +27,7 @@ THE SOFTWARE.
     <l:layout title="Jenkins JS Lib Samples" norefresh="true">
         <l:main-panel>
             <h1>Jenkins JS Samples</h1>
-            <div id="form-container"></div>
+            <button id="submit-details" type="button" class="btn btn-lg btn-danger">Click to submit details</button>
         </l:main-panel>
     </l:layout>
     
