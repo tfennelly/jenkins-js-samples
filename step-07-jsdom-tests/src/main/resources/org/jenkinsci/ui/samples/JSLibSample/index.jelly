@@ -32,6 +32,6 @@ THE SOFTWARE.
     </l:layout>
     
     <!-- Add the bundle that's been generated into the webapp/jsbundles folder (by the gulpfile.js) -->
-    <script src="../plugin/step-06-handlebars-templates/jsbundles/jslib-samples.js" type="text/javascript"></script>
+    <script src="../plugin/step-07-jsdom-tests/jsbundles/jslib-samples.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" ></link>
 </j:jelly>
