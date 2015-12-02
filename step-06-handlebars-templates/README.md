@@ -32,7 +32,7 @@ using [Handlebars] templates.
 
 <hr/>
 <p align="center">
-<b><a href="../../../tree/master/step-05-namespaced-css">&lt;&lt; PREV (step-05-namespaced-css) &lt;&lt;</a></b>
+<b><a href="../../../tree/master/step-05-namespaced-css">&lt;&lt; PREV (step-05-namespaced-css) &lt;&lt;</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <a href="../../../tree/master/step-07-jsdom-tests">&gt;&gt; NEXT (step-07-jsdom-tests) &gt;&gt;</a></b>
 </p>
 
 [Handlebars]: http://handlebarsjs.com/
