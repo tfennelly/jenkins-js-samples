@@ -7,7 +7,12 @@ describe("jslib-samples.js", function () {
 
     it("- test", function (done) {
         
+        // Create a "fake" page with the same button as is on the real page then the plugin
+        // is run in Jenkins.
         var PAGE = '<html><head></head><body><button id="submit-details" type="button" class="btn btn-lg btn-danger">Click to submit details</button></body></html>';
+        
+        // "Load" the fake page using jenkins-js-test. jenkins-js-test wraps jsdom, but also makes sure
+        // the environment is reset properly for this test.
         jsTest.onPage(function() {
             // Load the CommonJS module under test
             jsTest.requireSrcModule('jslib-samples.js');

@@ -1,19 +1,10 @@
-# Step 06 - Handlebars Templates
-In this plugin (`step-06-handlebars-templates`), we build on <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a>,
-changing it to apply client-side templates using the [Handlebars] templating engine.
-
-With this model, we change from the "traditional" pure server-side content rendering approach of Jenkins (in `.jelly` files),
-to an approach where just the bare minimum content is rendered server-side, and the reset of the content is rendered on
-the client-side e.g. the client-side makes a REST API call to get some data from the server and then applies a template
-to that data to produce the view content. This approach is fundamental to creating a more dynamic/slick user experience
-(Vs full page reloading etc). 
-
-<p>
-<ol>
-    <li><a href="#how-to-run">How to run</a><br/>
-    <li><a href="HOW-IT-WORKS.md">How it works</a><br/>
-</ol>    
-</p>
+# Step 07 - jsdom tests
+[jsdom] is a JavaScript implementation of the [WHATWG](https://whatwg.org/), DOM and HTML standards. It's quite
+useful for writing unit tests.
+  
+In this sample plugin, we modified <a href="../../../tree/master/step-06-handlebars-templates">step-06-handlebars-templates</a>
+the UI a little so as the make it a small bit more interactive. We then added a simple unit test that used [jsdom]
+(via [jenkins-js-test]). 
 
 ## How to run
 The easiest way to run this Jenkins plugin is to [use the standard Maven HPI plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial#Plugintutorial-DebuggingaPlugin).
@@ -22,28 +13,71 @@ The easiest way to run this Jenkins plugin is to [use the standard Maven HPI plu
 $ mvn hpi:run
 ```
 
-Again, nothing visual changes from <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a> to this plugin.
-The only difference is in <a href="HOW-IT-WORKS.md">how it works</a>, specifically in how the form content is rendered on the client-side
-using [Handlebars] templates.
+After running the plugin you'll see that the form (that was in <a href="../../../tree/master/step-06-handlebars-templates">step-06-handlebars-templates</a>)
+has now moved into a Twitter Bootstrap popover.
 
-## How it works
+![root action page](img/root-action-page.png)
 
-<a href="HOW-IT-WORKS.md"><img src="../img/how-it-works.png" /></a>
+## The test
+In this plugin, we want to add a JavaScript unit test to test this page i.e.:
+
+1. That the big red button is displayed
+1. That the popover form appears when we click on that button
+1. That the popover form disappears when we click the form "Submit" button 
+
+Since this is a maven project, [jenkins-js-builder] looks for the tests in `src/test/js` so that is where we
+added the test "spec" file i.e. `src/test/js/jslib-samples-spec.js`. [jenkins-js-builder] uses [Jasmine] to
+run all tests ("**/*-spec.js") it finds under the `src/test/js` sub directory.
+ 
+[See the test code in jslib-samples-spec.js and read the comments therein](src/test/js/jslib-samples-spec.js).
+ 
+## Running the test 
+Running the tests from the commandline is easy. Just run `gulp` and that will run the tests too:
+
+```sh
+$ gulp
+```
+
+Of course this also runs as part of the `mvn` build.
+
+Running `gulp` should produce an output something like the following:
+
+```sh
+$ gulp
+[16:19:09] Maven project
+[16:19:09]  - src: src/main/js,src/main/less
+[16:19:09]  - test: src/test/js
+[16:19:09] Setting defaults
+[16:19:09] Bundle will be generated in directory 'src/main/webapp/jsbundles' as 'jslib-samples.js'.
+[16:19:09] Using gulpfile ~/projects/jenkins-plugins/jenkins-js-samples/step-07-jsdom-tests/gulpfile.js
+[16:19:09] Starting 'jshint'...
+[16:19:09] 	- Using default JSHint configuration (in jenkins-js-builder). Override by defining a .jshintrc in this folder.
+[16:19:09] Finished 'jshint' after 155 ms
+[16:19:09] Starting 'bundle_jslib-samples'...
+[16:19:09] Finished 'bundle_jslib-samples' after 391 ms
+[16:19:09] Starting 'bundle'...
+[16:19:09] Finished 'bundle' after 8.02 μs
+[16:19:09] Starting 'test'...
+[16:19:09] Testing web server started on port 18999 (http://localhost:18999). Content root: /Users/tfennelly/projects/jenkins-plugins/jenkins-js-samples/step-07-jsdom-tests
+[16:19:09] Test execution completed.
+[16:19:09] Finished 'test' after 26 ms
+[16:19:09] Starting 'default'...
+[16:19:09] Finished 'default' after 17 μs
+jslib-samples.js
+  - test ...
+ Passed
+1 of 1 passed (0 skipped, 0 disabled).
+SUCCESS: 1 spec, 0 failures, 0 skipped, 0 disabled in 0.256s.
+[16:19:10] Testing web server stopped.
+```
 
 <hr/>
 <p align="center">
-<b><a href="../../../tree/master/step-05-namespaced-css">&lt;&lt; PREV (step-05-namespaced-css) &lt;&lt;</a></b>
+<b><a href="../../../tree/master/step-06-handlebars-templates">&lt;&lt; PREV (step-06-handlebars-templates) &lt;&lt;</a></b>
 </p>
 
-[Handlebars]: http://handlebarsjs.com/
-[Node.js]: https://nodejs.org
-[Gulp]: https://github.com/gulpjs/gulp
+[jsdom]: https://github.com/tmpvar/jsdom
+[jenkins-js-test]: https://github.com/jenkinsci/js-test
 [jenkins-js-builder]: https://github.com/jenkinsci/js-builder
-[jenkins-js-modules]: https://github.com/jenkinsci/js-modules
-[jenkins-js-libs]: https://github.com/jenkinsci/js-libs
-[CommonJS]: http://www.commonjs.org/
-[jquery-detached]: https://github.com/tfennelly/jquery-detached
-[bootstrap-detached]: https://github.com/tfennelly/bootstrap-detached
-[Browserify]: http://browserify.org/
-[bundle]: https://github.com/jenkinsci/js-modules/blob/master/FAQs.md#what-is-the-difference-between-a-module-and-a-bundle
+[Jasmine]: http://jasmine.github.io/
 
