@@ -22,7 +22,13 @@ In this plugin, we want to add a JavaScript unit test to test this page i.e.:
 
 1. That the big red button is displayed
 1. That the popover form appears when we click on that button
-1. That the popover form disappears when we click the form "Submit" button 
+1. That the popover form disappears when we click the form "Submit" button
+ 
+To install `jenkins-js-test`:
+ 
+```sh
+$ npm install --save-dev jenkins-js-test
+```
 
 Since this is a maven project, [jenkins-js-builder] looks for the tests in `src/test/js` so that is where we
 added the test "spec" file i.e. `src/test/js/jslib-samples-spec.js`. [jenkins-js-builder] uses [Jasmine] to
