@@ -15,10 +15,13 @@ incrementally adding more JavaScript "features".
 1. <b><a href="../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a></b>: Update <a href="../../tree/master/step-03-more-npm-packs">step-03-more-npm-packs</a> to slim down the the App bundle by externalizing Bootstrap and Moment.js (Bootstrap and Moment.js NOT bundled).
 1. <b><a href="../../tree/master/step-05-namespaced-css">step-05-namespaced-css</a></b>: Update <a href="../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a> to use bootstrap's default namespaced CSS.
 1. <b><a href="../../tree/master/step-06-handlebars-templates">step-06-handlebars-templates</a></b>: Update <a href="../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a> to use Handlebars Templates.
-1. <b><a href="../../tree/master/step-07-jsdom-tests">step-07-jsdom-tests</a></b>: How to add unit tests using [jsdom] and [jenkins-js-test].
+1. <b><a href="../../tree/master/step-07-jsdom-tests">step-07-jsdom-tests</a></b>: How to add unit tests using [jsdom] and [Jasmine].
+1. <b><a href="../../tree/master/step-08-zombie-tests">step-08-zombie-tests</a></b>: How to add integration tests using [Zombie] and [Jasmine].
 
 [jenkins-js-modules]: https://github.com/jenkinsci/js-modules
 [jenkins-js-builder]: https://github.com/jenkinsci/js-builder
 [jenkins-js-libs]: https://github.com/jenkinsci/js-libs
 [jenkins-js-test]: https://github.com/jenkinsci/js-test
+[Jasmine]: http://jasmine.github.io/
 [jsdom]: https://github.com/tmpvar/jsdom
+[Zombie]: http://zombie.js.org/
