@@ -25,6 +25,7 @@
         <module>step-05-namespaced-css</module>
         <module>step-06-handlebars-templates</module>
         <module>step-07-jsdom-tests</module>      
+        <module>step-08-zombie-tests</module>      
     </modules>
 
     <licenses>
