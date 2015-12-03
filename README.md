@@ -11,7 +11,7 @@ which is just a simple Jenkins plugin that contains no JavaScript at all, workin
 incrementally adding more JavaScript "features". 
 
 | Name | Description |
-|:-----|:------------|
+| :-----| :------------|
 | <b><a href="../../tree/master/step-01-basic">step-01-basic</a></b> | A very basic Jenkins plugin with no JavaScript.
 | <b><a href="../../tree/master/step-02-nodeify">step-02-nodeify</a></b> | Update <a href="../../tree/master/step-01-basic">step-01-basic</a> to add a very simple jQuery based JavaScript App bundle (jQuery bundled).|
 | <b><a href="../../tree/master/step-03-more-npm-packs">step-03-more-npm-packs</a></b> | Update <a href="../../tree/master/step-02-nodeify">step-02-nodeify</a> to use Twitter Bootstrap instead of jQuery and to also use Moment.js (Bootstrap and Moment.js bundled). |
