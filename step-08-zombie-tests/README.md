@@ -122,6 +122,8 @@ the bundle requires the following change to the `gulpfile.js`:
 +       .generateNoImportsBundle();
 ```
 
+> <a href="https://github.com/jenkinsci/js-builder#step-41-optional-generating-a-no_imports-bundle">More on generating "no_import" bundles</a>. 
+
 <hr/>
 <p align="center">
 <b><a href="../../../tree/master/step-07-jsdom-tests">&lt;&lt; PREV (step-07-jsdom-tests) &lt;&lt;</a></b>
