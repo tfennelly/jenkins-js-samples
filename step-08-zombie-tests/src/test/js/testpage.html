@@ -1,0 +1,13 @@
+<html>
+    <head resURL="/jenkins">
+        <!-- 
+            Specifically generating a "no_imports" bundle (see gulpfile.js and src/webapp/jsbundles/no_imports/jslib-samples.js).
+            This bundle is easier to test with because it has everything it needs. Not great for production due to its size.
+        -->
+        <script type="text/javascript" src="../../main/webapp/jsbundles/no_imports/jslib-samples.js"></script>
+    </head>
+    <body>
+        <!-- Add the <button> that the script bundle will be looking for. -->
+        <button id="submit-details" type="button" class="btn btn-lg btn-danger">Click to submit details</button>
+    </body>
+</html>

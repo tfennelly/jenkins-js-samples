@@ -43,13 +43,13 @@ The `<dependencies>` section in the `pom.xml` of this plugin was updated to incl
      </dependencies>
 ```
 
-## Install `jenkins-handlebars-rt` NPM package
+## Install Handlebars NPM packages
 
 ```sh
-$ npm install --save jenkins-handlebars-rt
+$ npm install --save-dev hbsfy handlebars jenkins-handlebars-rt 
 ```
 
-This package is needed in order for [Handlebarsify](https://www.npmjs.com/package/handlebarsify) to work properly.
+These packages are needed in order for [Handlebarsify](https://www.npmjs.com/package/handlebarsify) to work properly.
 
 ## Add `withExternalModuleMapping` in `gulpfile.js`
 

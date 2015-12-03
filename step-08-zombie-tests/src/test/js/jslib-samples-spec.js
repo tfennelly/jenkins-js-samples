@@ -1,44 +1,36 @@
-var jsTest = require("jenkins-js-test");
+// See http://zombie.js.org/
+var Browser = require("zombie");
 
-// This is a Jasmine test that uses the jsdom lib via jenkins-js-test. jenkins-js-test
-// just wraps up some things and makes jsdom a bit easier to use.
+describe("step 08 - zombie headless browser test", function () {
 
-describe("jslib-samples.js", function () {
-
-    it("- test", function (done) {
+    it("- basic test", function (done) {
+        var browser = new Browser();
         
-        // Create a "fake" page with the same button as is on the real page when the plugin
-        // is run in Jenkins.
-        var PAGE = '<html><head></head><body><button id="submit-details" type="button" class="btn btn-lg btn-danger">Click to submit details</button></body></html>';
+        // Lets see what zombie is doing (on the console)
+        browser.debug();
         
-        // "Load" the fake page using jenkins-js-test. jenkins-js-test wraps jsdom, but also makes sure
-        // the environment is reset properly for this test.
-        jsTest.onPage(function() {
-            // Load the CommonJS module under test
-            jsTest.requireSrcModule('jslib-samples.js');
-
-            // Get bootstrap and manually fire events, mimicing user interactions
-            var bootstrap = require("bootstrap-detached");
-            var $ = bootstrap.getBootstrap();
-                                
-            // Make sure the submit-details-go button is not visible
-            expect($('#submit-details-go').length).toBe(0);
+        // Load the test page src/test/js/testpage.html
+        browser.visit('http://localhost:18999/src/test/js/testpage.html', function() {
+            expect(browser.success).toBe(true);
             
-            // Click the submit  
-            $('#submit-details').click();
+            // Make some assertions (http://zombie.js.org/#assertions)...
+            browser.assert.elements('#submit-details', 1);
+            browser.assert.elements('#submit-details-go', 0);
             
-            // Make sure that the popover with the submit-details-go button
-            // is visible now
-            expect($('#submit-details-go').length).toBe(1);                        
-            
-            // Click the submit go button on the popover. It should disappear then.
-            $('#submit-details-go').click();
-                                
-            // Make sure the submit-details-go button is no longer visible
-            expect($('#submit-details-go').length).toBe(0);
-            
-            // Calling done tells Jasmine that the test is complete.
-            done();
-        }, PAGE);
+            // Click/press the #submit-details button ...
+            browser.pressButton('Click to submit details', function() {
+                // Make some assertions (http://zombie.js.org/#assertions)...
+                browser.assert.elements('#submit-details-go', 1);
+                
+                // Press the submit button on the form...
+                browser.pressButton('Submit', function() {
+                    // Which should make the form popover disappear again..
+                    browser.assert.elements('#submit-details-go', 0);      
+                    
+                    // Yipee, all looks good... tells Jasmine that the test is complete.
+                    done();
+                });
+            });
+        });
     });
 });
