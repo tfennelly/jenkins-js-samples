@@ -5,6 +5,8 @@ for integration testing.
 In this sample plugin, we modified <a href="../../../tree/master/step-06-handlebars-templates">step-06-handlebars-templates</a>
 a little so as the make it a small bit more interactive. We then added a simple integration test using [Zombie]. 
 
+> Also see <a href="../../../tree/master/step-07-jsdom-tests">step-07-jsdom-tests</a> as an example of how to do Unit Testing. 
+
 ## How to run
 The easiest way to run this Jenkins plugin is to [use the standard Maven HPI plugin for Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial#Plugintutorial-DebuggingaPlugin).
 
@@ -43,7 +45,7 @@ Running the tests from the commandline is easy. Just run `gulp` and that will ru
 $ gulp
 ```
 
-Of course this also runs as part of the `mvn` build.
+> The `gulp` process also runs as part of the `mvn` build, generating the JavaScript bundle(s) into the generated HPI artifact.
 
 Running `gulp` should produce an output something like the following:
 
@@ -122,7 +124,7 @@ the bundle requires the following change to the `gulpfile.js`:
 
 <hr/>
 <p align="center">
-<b><a href="../../../tree/master/step-06-handlebars-templates">&lt;&lt; PREV (step-06-handlebars-templates) &lt;&lt;</a></b>
+<b><a href="../../../tree/master/step-07-jsdom-tests">&lt;&lt; PREV (step-07-jsdom-tests) &lt;&lt;</a></b>
 </p>
 
 [Zombie]: http://zombie.js.org/
