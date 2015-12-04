@@ -46,7 +46,7 @@ The `<dependencies>` section in the `pom.xml` of this plugin was updated to incl
 ## Install Handlebars NPM packages
 
 ```sh
-$ npm install --save-dev hbsfy handlebars jenkins-handlebars-rt 
+$ npm install --save-dev hbsfy@2 handlebars@3 jenkins-handlebars-rt 
 ```
 
 These packages are needed in order for [Handlebarsify](https://www.npmjs.com/package/handlebarsify) to work properly.
