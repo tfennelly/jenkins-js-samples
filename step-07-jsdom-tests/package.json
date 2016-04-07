@@ -8,12 +8,12 @@
     "jenkins-handlebars-rt": "^1.0.1",
     "handlebars": "^4.0.5",
     "hbsfy": "^2.4.1",
-    "jenkins-js-builder": "0.0.34",
-    "jenkins-js-test": "0.0.16"
+    "@jenkins-cd/js-builder": "0.0.25",
+    "@jenkins-cd/js-test": "1.1.1"
   },
   "dependencies": {
     "bootstrap-detached": "^3.3.4-v6",
-    "jenkins-js-modules": "^1.4.0",
+    "@jenkins-cd/js-modules": "0.0.3",
     "moment": "^2.10.6"
   }
 }
