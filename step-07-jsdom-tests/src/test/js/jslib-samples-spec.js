@@ -1,6 +1,6 @@
-var jsTest = require("jenkins-js-test");
+var jsTest = require("@jenkins-cd/js-test");
 
-// This is a Jasmine test that uses the jsdom lib via jenkins-js-test. jenkins-js-test
+// This is a Jasmine test that uses the jsdom lib via @jenkins-cd/js-test. @jenkins-cd/js-test
 // just wraps up some things and makes jsdom a bit easier to use.
 
 describe("jslib-samples.js", function () {
@@ -11,7 +11,7 @@ describe("jslib-samples.js", function () {
         // is run in Jenkins.
         var PAGE = '<html><head></head><body><button id="submit-details" type="button" class="btn btn-lg btn-danger">Click to submit details</button></body></html>';
         
-        // "Load" the fake page using jenkins-js-test. jenkins-js-test wraps jsdom, but also makes sure
+        // "Load" the fake page using @jenkins-cd/js-test. @jenkins-cd/js-test wraps jsdom, but also makes sure
         // the environment is reset properly for this test.
         jsTest.onPage(function() {
             // Load the CommonJS module under test
