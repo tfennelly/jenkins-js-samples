@@ -5,10 +5,10 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "@jenkins-cd/js-builder": "0.0.26"
+    "@jenkins-cd/js-builder": "latest"
   },
   "dependencies": {
-    "@jenkins-cd/js-modules": "0.0.3",
+    "@jenkins-cd/js-modules": "latest",
     "bootstrap-detached": "^3.3.4-v6",
     "moment": "^2.10.6"
   }

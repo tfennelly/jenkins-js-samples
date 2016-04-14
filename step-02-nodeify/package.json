@@ -5,10 +5,11 @@
   "license": "MIT",
   "devDependencies": {
     "gulp": "^3.9.0",
-    "@jenkins-cd/js-builder": "0.0.26"
+    "@jenkins-cd/js-builder": "latest"
   },
   "dependencies": {
-    "@jenkins-cd/js-modules": "0.0.3",
+    "@jenkins-cd/js-modules": "latest",
+    "jquery": "^2.2.3",
     "jquery-detached": "^2.1.4-v2"
   }
 }

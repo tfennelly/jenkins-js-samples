@@ -15,27 +15,5 @@
 
     <name>JS Lib Samples: Step 8 - zombie Tests</name>
     <description>A sample that uses zombie for integration/headless testing</description>
-    
-    <dependencies>
-        <!-- Load the framework libs from plugins Vs bundling them in an uber-bundle. -->
-        <dependency>
-            <groupId>org.jenkins-ci.ui</groupId>
-            <artifactId>bootstrap</artifactId>
-            <version>1.2</version>
-            <type>hpi</type>
-        </dependency>
-        <dependency>
-            <groupId>org.jenkins-ci.ui</groupId>
-            <artifactId>momentjs</artifactId>
-            <version>1.0</version>
-            <type>hpi</type>            
-        </dependency>
-        <dependency>
-            <groupId>org.jenkins-ci.ui</groupId>
-            <artifactId>handlebars</artifactId>
-            <version>1.0</version>
-            <type>hpi</type>            
-        </dependency>
-    </dependencies>
 
 </project>

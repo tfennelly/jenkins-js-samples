@@ -1,4 +1,4 @@
-// Change from 'jquery-detached' to 'bootstrap-detached'
+// Change from 'jquery' to 'bootstrap-detached'
 var $ = require('bootstrap-detached').getBootstrap();
 
 $(document).ready(function start() {

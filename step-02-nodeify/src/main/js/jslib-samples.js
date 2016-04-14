@@ -1,4 +1,4 @@
-var $ = require('jquery-detached').getJQuery();
+var $ = require('jquery');
 
 $(document).ready(function start() {
     $('#side-panel').remove();

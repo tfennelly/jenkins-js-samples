@@ -5,6 +5,10 @@ var builder = require('@jenkins-cd/js-builder');
 // See https://github.com/jenkinsci/js-builder
 //
 builder.bundle('src/main/js/jslib-samples.js')
-       .withExternalModuleMapping('bootstrap-detached', 'bootstrap:bootstrap3')
-       .withExternalModuleMapping('moment', 'momentjs:momentjs2')
        .inDir('src/main/webapp/jsbundles');
+
+//
+// Bundle the bootstrap CSS (and associated files).
+// Will be made available as a Jenkins adjunct - check build output message.
+//
+builder.bundle('src/main/css/bootstrap336/bootstrap.css');

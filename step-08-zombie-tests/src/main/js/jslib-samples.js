@@ -1,9 +1,11 @@
 // Change from 'jquery-detached' to 'bootstrap-detached'
 var $ = require('bootstrap-detached').getBootstrap();
+var handlebars = require('handlebars');
+var formTemplate = handlebars.compile(require('fs')
+    .readFileSync(__dirname + '/./templates/form.hbs', 'utf8'));
 
 $(document).ready(function () {
     var moment = require('moment');
-    var formTemplate = require('./templates/form.hbs');
 
     $('#side-panel').remove();
     $('#main-panel').css('margin-left', '0px');
