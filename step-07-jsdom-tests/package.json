@@ -8,7 +8,7 @@
     "jenkins-handlebars-rt": "^1.0.1",
     "handlebars": "^4.0.5",
     "hbsfy": "^2.4.1",
-    "@jenkins-cd/js-builder": "0.0.25",
+    "@jenkins-cd/js-builder": "0.0.26",
     "@jenkins-cd/js-test": "1.1.1"
   },
   "dependencies": {
