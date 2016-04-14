@@ -54,7 +54,7 @@ These packages are needed in order for [Handlebarsify](https://www.npmjs.com/pac
 ## Add `withExternalModuleMapping` in `gulpfile.js`
 
 ```diff
- var builder = require('jenkins-js-builder');
+ var builder = require('@jenkins-cd/js-builder');
  
  //
  // Bundle the modules.

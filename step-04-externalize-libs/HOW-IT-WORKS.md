@@ -17,13 +17,13 @@ code changes. The only changes should be in how we build the app [bundle].
 [jenkins-js-libs] contains HPI bundled versions of [bootstrap-detached] etc. Browse around [jenkins-js-libs] and take
 note of what's currently available. We will be adding more over time. 
 
-## Install `jenkins-js-modules` NPM package
+## Install `@jenkins-cd/js-modules` NPM package
 [jenkins-js-modules] is a bundle loader. It will let the `step-04-externalize-libs` app [bundle] load external
 dependencies from the [jenkins-js-libs] HPI plugins at runtime Vs having to include those dependencies directly in its
 own `js` bundle.
 
 ```sh
-$ npm install --save jenkins-js-modules
+$ npm install --save @jenkins-cd/js-modules
 ```
 
 ## Add HPI plugin dependencies
@@ -82,7 +82,7 @@ The changes are simply to add the relevant `withExternalModuleMapping` [jenkins-
 
 ```diff
 @@ -1,8 +1,10 @@
- var builder = require('jenkins-js-builder');
+ var builder = require('@jenkins-cd/js-builder');
  
  //
  // Bundle the modules.

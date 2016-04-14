@@ -13,7 +13,7 @@ You can create and use your own namespaced CSS, but the bootstrap bundle comes w
 Simply set the `addDefaultCSS` option on the `withExternalModuleMapping` call in the `gulpfile.js`:
 
 ```diff
- var builder = require('jenkins-js-builder');
+ var builder = require('@jenkins-cd/js-builder');
  
  //
  // Bundle the modules.

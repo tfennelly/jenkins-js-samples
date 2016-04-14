@@ -29,7 +29,7 @@ In this plugin, we want to add a JavaScript unit test to test this page i.e.:
 To install `jenkins-js-test`:
  
 ```sh
-$ npm install --save-dev jenkins-js-test
+$ npm install --save-dev @jenkins-cd/js-test
 ```
 
 Since this is a maven project, [jenkins-js-builder] looks for the tests in `src/test/js` so that is where we

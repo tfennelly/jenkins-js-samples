@@ -53,7 +53,7 @@ name: (step-02-nodeify)
 Install the minimum set of NPM packages required for your plugin to build ([gulp](https://github.com/gulpjs/gulp) and [jenkins-js-builder]).
 
 ```sh
-$ npm install --save-dev gulp jenkins-js-builder
+$ npm install --save-dev gulp @jenkins-cd/js-builder
 ```
 
 Let's also install the [jquery-detached] package.
@@ -83,7 +83,7 @@ Add a `gulpfile.js` file to the root of your plugin.
 `gulpfile.js` will not contain a lot of code. Most of the work is done by [jenkins-js-builder]. 
 
 ```javascript
-var builder = require('jenkins-js-builder');
+var builder = require('@jenkins-cd/js-builder');
 
 //
 // Bundle the modules.

@@ -107,7 +107,7 @@ of testing a bit easier because it means we don't have to resolve `imports` etc.
 the bundle requires the following change to the `gulpfile.js`:
 
 ```diff
- var builder = require('jenkins-js-builder');
+ var builder = require('@jenkins-cd/js-builder');
  
  //
  // Bundle the modules.
