@@ -9,7 +9,8 @@ then it makes sense to use a namespaced CSS for bootstrap in case another widget
 ## CSS/LESS and `index.jelly` changes
 The easiest way to namespace the CSS rules is to pre-process the ruleset using [LESS]. In this sample, we will namespace the
 bootstrap rules by introducing a `bootstrap-3` namespace. To do this, we added a [bootstrap-ns3.less](src/main/css/bootstrap336/bootstrap-ns3.less)
-in `src/main/css/bootstrap336`. It simply does a [LESS] `@import` of the `bootstrap.css` rules, adding the `.bootstrap-3` class on all of them.
+in `src/main/css/bootstrap336`. It simply does a [LESS] `@import` of the [bootstrap.css](src/main/css/bootstrap336/bootstrap.css) rules,
+adding the `.bootstrap-3` class on all of them.
 
 ```less
 .bootstrap-3 {
