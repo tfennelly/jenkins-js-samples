@@ -41,7 +41,7 @@ So putting it another way, every plugin will have `.js` bundle adjuncts for all 
 If JavaScript for plugin "A" requires an externalized dependency to be loaded (e.g. `moment` v2.12.0),
 [jenkins-js-modules] will load that dependency for plugin "A".  If plugin "B" then (some time later) also needs `moment`
 and it's version dependency is compatible with the already loaded version (e.g. `^2.x`), then [jenkins-js-modules]
-will not trigger another loading of of `moment` i.e. it will provide the already loaded `moment` to plugin "B".
+will not trigger another loading of `moment` i.e. it will provide the already loaded `moment` to plugin "B".
 
 ## Test run
 Now take `step-04-externalize-libs` for a test run and see the effect of these changes. What you'll see is that
