@@ -18,11 +18,11 @@ to that data to produce the view content. This approach is fundamental to creati
 $ npm install --save handlebars@3 
 ```
 
-Note that we are not goig to be pre-compiling the [Handlerbars] templates (see [Handlebarsify]) as doing so would
-mean that we would not be able to externalize the [Handlerbars] NPM package (due to how [Handlebarsify] references 
+Note that we are not goig to be pre-compiling the [Handlebars] templates (see [Handlebarsify]) as doing so would
+mean that we would not be able to externalize the [Handlebars] NPM package (due to how [Handlebarsify] references 
 the [Handlebars] runtime, as well as how helpers work etc).
 
-## Externalize the [Handlerbars] NPM package
+## Externalize the [Handlebars] NPM package
 Simply add `handlebars` to the `extDependencies` list in the `package.json` file:
 
 ```diff
@@ -36,7 +36,7 @@ See <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-
 NPM dependencies.
 
 ## Move the form to `form.hbs` (from `JSLibSample/index.jelly`)
-Add the [Handlerbars] template in [src/main/js/templates/form.hbs](src/main/js/templates/form.hbs). Note the `{{time}}`
+Add the [Handlebars] template in [src/main/js/templates/form.hbs](src/main/js/templates/form.hbs). Note the `{{time}}`
 token; this will make more sense when we get to the `.js` changes below.
 
 ```html
