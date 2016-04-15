@@ -18,7 +18,7 @@ is `jquery + bootstrap`:
 $ npm uninstall --save jquery
 ```
 
-> [bootstrap-detached] is easier to use because it contains it's own "detached` instance of jquery ([jquery-detached]). 
+> Note: [bootstrap-detached] is easier to use because it contains it's own "detached" instance of jquery ([jquery-detached]). 
 
 ## Update `.js` and `.jelly`
 The changes to the `src/main/js/jslib-samples.js` are very trivial.
@@ -53,12 +53,12 @@ This bundling command will bundle everything under `src/main/css/bootstrap336` i
 adjunct identifier is output to the console by the build (just as described with the `.js` bundle adjunct
 in <a href="../../../tree/master/step-02-nodeify">step-02-nodeify</a>).
 
-> Note: You can also specify a [LESS](http://lesscss.org/) file here and it will be pre-processed and bundled into the Jenkins plugin.
-
 ```sh
 [12:33:57] CSS resource "src/main/css/bootstrap336/bootstrap.css" will be available
            in Jenkins as adjunct "org.jenkins.ui.jsmodules.bootstrap336.bootstrap".
 ```
+
+> Note: You can also specify a [LESS](http://lesscss.org/) file here and it will be pre-processed and bundled into the Jenkins plugin.
 
 The changes to [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly) were trivial
 i.e. just add the adjunct:
