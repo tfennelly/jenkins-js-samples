@@ -9,110 +9,43 @@ potentially result in multiple jQuery instances (and Bootstrap, Moment.js etc) b
 this kind of situations is to have slimmer/lighter "App" bundles, all sharing the same jQuery etc.
 
 In `step-04-externalize-libs`, we build on top of <a href="../../../tree/master/step-03-more-npm-packs">step-03-more-npm-packs</a>,
-using [jenkins-js-modules] to load HPI bundled versions of [bootstrap-detached]
-and Moment.js. This means that `step-04-externalize-libs`s `.js` [bundle] will no longer include these dependencies
-and it's size will reduce to less than 30Kb (as opposed to 300Kb). Note that this change should not require app `.js`
-code changes. The only changes should be in how we build the app [bundle].
+changing the bundling process by telling [jenkins-js-builder] to "externalize" some of the NPM dependencies. This means
+that `step-04-externalize-libs`s `.js` [bundle] will no longer include these dependencies and it's size will reduce to
+less ~10Kb gzipped (as opposed to ~100Kb). Note that this change should not require app `.js`
+code changes. The only changes are in the `package.json`.
 
-[jenkins-js-libs] contains HPI bundled versions of [bootstrap-detached] etc. Browse around [jenkins-js-libs] and take
-note of what's currently available. We will be adding more over time. 
+## Configure Node build to externalize dependencies
+Externalizing NPM dependencies is a simple process. Just add an `extDependencies` entry in the `package.json`.
+In these case of this plugin externalizing [bootstrap-detached] and Moment.js:
 
-## Install `@jenkins-cd/js-modules` NPM package
-[jenkins-js-modules] is a bundle loader. It will let the `step-04-externalize-libs` app [bundle] load external
-dependencies from the [jenkins-js-libs] HPI plugins at runtime Vs having to include those dependencies directly in its
-own `js` bundle.
-
-```sh
-$ npm install --save @jenkins-cd/js-modules
+```javascript
+  "jenkinscd" : {
+    "extDependencies": ["bootstrap-detached", "moment"]
+  }
 ```
 
-## Add HPI plugin dependencies
-Because we are changing the `step-04-externalize-libs` app [bundle] to load its external dependencies (bootstrap and 
-momentjs) from HPI plugins (using [jenkins-js-modules]), we need to add maven dependencies on those HPI plugins so as to
-ensure they get installed/loaded in Jenkins at runtime (and so are available for loading to the UI at runtime).
+The above instruction tells [jenkins-js-builder] to create seperate adjunct based bundles for these dependencies
+and to add them to the plugin archive. [jenkins-js-builder] does some magic (with [jenkins-js-modules]) that results
+these dependency bundles being created in a way that if (e.g.) another plugin has also externalized the same dependency
+(version compatibility info below) then it will only be loaded once at runtime e.g. if a "compatible" version of the
+same NPM dependency was already loaded by [jenkins-js-modules] then it will not be loaded again.
 
-So, change the `pom.xml` to add dependencies on the [bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap)
-and [momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs) HPI plugins:
-
-```diff
-@@ -1,19 +1,35 @@
- <?xml version="1.0" encoding="UTF-8"?>
- <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-     <modelVersion>4.0.0</modelVersion>
- 
-     <parent>
-         <groupId>org.jenkins-ci.ui.samples</groupId>
-         <artifactId>jenkins-js-samples</artifactId>
-         <version>1.0-SNAPSHOT</version>
-         <relativePath>../</relativePath>
-     </parent>
-     <artifactId>step-04-externalize-libs</artifactId>
-     <version>1.0</version>
-     <packaging>hpi</packaging>
- 
-     <name>JS Lib Samples: Step 4 - Externalize JS Libs</name>
-     <description>A sample that externalizes the framework libs Vs bundling them all</description>
-+    
-+    <dependencies>
-+        <!-- Load the framework libs from plugins Vs bundling them in an uber-bundle. -->
-+        <dependency>
-+            <groupId>org.jenkins-ci.ui</groupId>
-+            <artifactId>bootstrap</artifactId>
-+            <version>1.2</version>
-+            <type>hpi</type>
-+        </dependency>
-+        <dependency>
-+            <groupId>org.jenkins-ci.ui</groupId>
-+            <artifactId>momentjs</artifactId>
-+            <version>1.0</version>
-+            <type>hpi</type>            
-+        </dependency>
-+    </dependencies>
- 
- </project>
-```
-
-## Configure Node build to load external dependencies
-The last step is to modify `gulpfile.js`, telling the [bundle] process to "link" in [bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap)
-and [momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs), and so NOT include them in the generated [bundle]
-(making it considerably smaller etc).
-
-The changes are simply to add the relevant `withExternalModuleMapping` [jenkins-js-builder] calls in `gulpfile.js`.
-
-```diff
-@@ -1,8 +1,10 @@
- var builder = require('@jenkins-cd/js-builder');
- 
- //
- // Bundle the modules.
- // See https://github.com/jenkinsci/js-builder
- //
- builder.bundle('src/main/js/jslib-samples.js')
-+       .withExternalModuleMapping('bootstrap-detached', 'bootstrap:bootstrap3')
-+       .withExternalModuleMapping('moment', 'momentjs:momentjs2')
-        .inDir('src/main/webapp/jsbundles');
-```
-
-[See jenkins-js-builder docs for more on withExternalModuleMapping](https://github.com/jenkinsci/js-builder#step-4-optional-specify-external-module-mappings-imports).
-Get the bundle QName ("bootstrap:bootstrap3" etc) from the relevant pages on [jenkins-js-libs]. 
+An important aspect of this externalization of NPM dependencies is the rules around how version compatibility works.
+In this regard, the above mentioned [jenkins-js-builder]/[jenkins-js-modules] magic honours the semantic versioning
+rules i.e. if a dependency bundle for Moment.js version `2.12.0` is already loaded, [jenkins-js-modules] will
+serve that version to anything that has a `moment` NPM dependency specification of version `^2.12.x` or `^2.x` i.e.
+they are considered as being compatible. If a compatible version of `moment` has not yet been loaded,
+[jenkins-js-modules] will trigger the async loading of that adjunct bundle. 
 
 ## Test run
 Now take `step-04-externalize-libs` for a test run and see the effect of these changes. What you'll see is that
 nothing has changed visually i.e. still works the same from a user perspective. The difference is in HOW it works.
 
-The `jslib-samples.js` [bundle] no longer contains [bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap),
-[momentjs](https://github.com/jenkinsci/js-libs/tree/master/momentjs) and 
-[jquery](https://github.com/jenkinsci/js-libs/tree/master/jquery-detached). Instead, it loads the dependencies at runtime
-from the [jenkins-js-libs] HPI plugins.
+The `jslib-samples.js` [bundle] no longer contains [bootstrap-detached] or Moment.js.
  
 The easiest way to see this is through the Browsers Developer Tools.
  
 ![browser loading](img/browser-loading.png)
-
-Using [jenkins-js-modules], `jslib-samples.js` triggers the loading of `bootstrap3.js` and `momentjs2.js` from their
-[jenkins-js-libs] HPI plugins. In turn, `bootstrap3.js` has a dependency on
-[jquery-detached](https://github.com/jenkinsci/js-libs/tree/master/jquery-detached), resulting in the loading of `jquery2.js`.
 
 <hr/>
 <p align="center">

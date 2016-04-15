@@ -50,10 +50,11 @@ name: (step-02-nodeify)
 ```
 
 ## Add initial NPM packages
-Install the minimum set of NPM packages required for your plugin to build ([gulp](https://github.com/gulpjs/gulp) and [jenkins-js-builder]).
+Install the minimum set of NPM packages required for your plugin to build ([gulp](https://github.com/gulpjs/gulp), [jenkins-js-builder] and [jenkins-js-modules]).
 
 ```sh
 $ npm install --save-dev gulp @jenkins-cd/js-builder
+$ npm install --save @jenkins-cd/js-modules
 ```
 
 Let's also install the jquery package.
