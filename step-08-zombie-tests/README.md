@@ -113,9 +113,8 @@ the bundle requires the following change to the `gulpfile.js`:
  // Bundle the modules.
  // See https://github.com/jenkinsci/js-builder
  //
- builder.bundle('src/main/js/jslib-samples.js')    
--       .inDir('src/main/webapp/jsbundles');
-+       .inDir('src/main/webapp/jsbundles')
+- builder.bundle('src/main/js/jslib-samples.js');    
++ builder.bundle('src/main/js/jslib-samples.js')    
 +       .generateNoImportsBundle();
 ```
 
