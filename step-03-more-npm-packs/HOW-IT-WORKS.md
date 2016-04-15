@@ -20,7 +20,7 @@ $ npm uninstall --save jquery
 
 > Note: [bootstrap-detached] is easier to use because it contains it's own "detached" instance of jquery ([jquery-detached]). 
 
-## Update `.js` and `.jelly`
+## Update `.js`
 The changes to the `src/main/js/jslib-samples.js` are very trivial.
  
 ```diff
@@ -38,6 +38,8 @@ The changes to the `src/main/js/jslib-samples.js` are very trivial.
 +    $('#main-panel .time').text(moment().format("MMM Do YY"));
  });
 ```
+
+## Bundle Bootstrap CSS
 
 The fact that we're using Bootstrap means that we need to add bootstrap's CSS to the plugin. After [downloading the
 bootstrap distro](http://getbootstrap.com/getting-started/), the CSS was added in
