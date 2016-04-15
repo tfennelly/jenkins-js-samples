@@ -1,8 +1,11 @@
 # Step 04 - Externalize Dependency Libraries (slim down)
 In this plugin (`step-04-externalize-libs`), we build on top of <a href="../../../tree/master/step-03-more-npm-packs">step-03-more-npm-packs</a>,
-changing it to load HPI bundled versions of [bootstrap-detached]
-and Moment.js. This means that `step-04-externalize-libs`s `.js` [bundle] will no longer include these dependencies
-and it's size will reduce to less than 30Kb (as opposed to 300Kb).
+changing it to "externalize" it's bulky dependencies i.e. [bootstrap-detached] and Moment.js. This means that `step-04-externalize-libs`s `.js`
+[bundle] will no longer include these dependencies and it's size will reduce to less than 30Kb (as opposed to 300Kb).
+
+This is important if you have multiple bundles loaded in Jenkins at once (e.g. from different plugins). You don't want each
+bundle to have their own copies of [bootstrap-detached], Moment.js etc, making them heavier to load etc. Instead, you want
+those common dependencies to be loaded separately and only once i.e. shared between all "app" bundles.
 
 <p>
 <ol>
