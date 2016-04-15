@@ -45,7 +45,7 @@ The fact that we're using Bootstrap means that we need to add bootstrap's CSS to
 bootstrap distro](http://getbootstrap.com/getting-started/), the CSS was added in
 [src/main/css/bootstrap336](src/main/css/bootstrap336). We want to bundle this CSS (and all related 
 resources - fonts etc) in our plugin and to do that, we simply add another `bundle`
-command to the `gulpfile.js` as follows:
+command to the [gulpfile.js](gulpfile.js) as follows:
 
 ```javascript
 builder.bundle('src/main/css/bootstrap336/bootstrap.css');
