@@ -145,7 +145,8 @@ SUCCESS: 0 specs, 0 failures, 0 skipped, 0 disabled in 0.001s.
 The part of the build output that's of most interest to us here is:
 
 ```sh
-[11:07:28] Javascript bundle "jslib-samples" will be available in Jenkins as adjunct "org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples".
+[11:07:28] Javascript bundle "jslib-samples" will be available
+           in Jenkins as adjunct "org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples".
 ```
 
 This tells us where the generated `.js` [bundle] can be loaded from as a Jenkins adjunct i.e. `org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples`.
@@ -160,7 +161,7 @@ Using the information from the previous section, it's easy to determine how to l
 <st:adjunct includes="org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples"/>
 ```
 
-> Note: The `org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples` adjunct identified translates to an adjunct URL of the form `http://localhost:8080/<adjuncts-url>/org/jenkins/ui/jsmodules/step_02_nodeify/jslib-samples.js`.
+> Note: The `org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples` adjunct identifier translates to an adjunct URL of the form `http://localhost:8080/<adjuncts-url>/org/jenkins/ui/jsmodules/step_02_nodeify/jslib-samples.js`.
 > The `<adjuncts-url>` prefix is typically something like `jenkins/adjuncts/1cc49125`. In JavaScript code, it can typically be accessed using the `getAdjunctURL()` method of the `@jenkins-cd/js-modules` package. 
 
 ## Test run

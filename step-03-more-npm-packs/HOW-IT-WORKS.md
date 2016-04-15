@@ -11,19 +11,21 @@ Install [bootstrap-detached] and Moment.js:
 $ npm install --save bootstrap-detached moment
 ```
 
-Since we are using [bootstrap-detached], we can uninstall [jquery-detached] because [bootstrap-detached]
+Since we are using [bootstrap-detached], we can uninstall jquery because [bootstrap-detached]
 is `jquery + bootstrap`:
 
 ```sh
-$ npm uninstall --save jquery-detached
+$ npm uninstall --save jquery
 ```
+
+> [bootstrap-detached] is easier to use because it contains it's own "detached` instance of jquery ([jquery-detached]). 
 
 ## Update `.js` and `.jelly`
 The changes to the `src/main/js/jslib-samples.js` are very trivial.
  
 ```diff
--var $ = require('jquery-detached').getJQuery();
-+// Change from 'jquery-detached' to 'bootstrap-detached' 
+-var $ = require('jquery');
++// Change from 'jquery' to 'bootstrap-detached' 
 +var $ = require('bootstrap-detached').getBootstrap();
  
  $(document).ready(function () {    
@@ -37,14 +39,33 @@ The changes to the `src/main/js/jslib-samples.js` are very trivial.
  });
 ```
 
-The changes to [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly) were trivial,
-the main one being that we added a CDN link to use the bootstrap styles:
+The fact that we're using Bootstrap means that we need to add bootstrap's CSS to the plugin. After [downloading the
+bootstrap distro](http://getbootstrap.com/getting-started/), the CSS was added in
+[src/main/css/bootstrap336](src/main/css/bootstrap336). We want to bundle this CSS (and all related 
+resources - fonts etc) in our plugin and to do that, we simply add another `bundle`
+command to the `gulpfile.js` as follows:
 
-```html
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" ></link>
+```javascript
+builder.bundle('src/main/css/bootstrap336/bootstrap.css');
 ```
 
-Of course in reality, you would not use a CDN for this. That's ok here though, since it's just a sample.
+This bundling command will bundle everything under `src/main/css/bootstrap336` into the plugin as adjuncts. The
+adjunct identifier is output to the console by the build (just as described with the `.js` bundle adjunct
+in <a href="../../../tree/master/step-02-nodeify">step-02-nodeify</a>).
+
+> Note: You can also specify a [LESS](http://lesscss.org/) file here and it will be pre-processed and bundled into the Jenkins plugin.
+
+```sh
+[12:33:57] CSS resource "src/main/css/bootstrap336/bootstrap.css" will be available
+           in Jenkins as adjunct "org.jenkins.ui.jsmodules.bootstrap336.bootstrap".
+```
+
+The changes to [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly) were trivial
+i.e. just add the adjunct:
+
+```html
+<st:adjunct includes="org.jenkins.ui.jsmodules.bootstrap336.bootstrap"/>
+```
 
 ## Test run
 Now take `step-03-more-npm-packs` for a test run and see the effect of these changes. 
