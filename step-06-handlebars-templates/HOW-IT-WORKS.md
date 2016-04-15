@@ -12,60 +12,28 @@ to that data to produce the view content. This approach is fundamental to creati
 (which most apps need to do). The following sections outline the changes that were made to
 <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a> in order for it to use [Handlebars] templates.
 
-## Update `pom.xml` to add `handlebars` HPI plugin dependency
-The [Handlebars HPI plugin](https://github.com/jenkinsci/js-libs/tree/master/handlebars) in [jenkins-js-libs] provides
-a [jenkins-js-modules] compatible [bundle] version of [Handlebars] i.e. [Handlebars] that can be linked into a [jenkins-js-modules]
-[bundle].
-
-The `<dependencies>` section in the `pom.xml` of this plugin was updated to include this HPI.
-
-```diff
-     <dependencies>
-         <!-- Load the framework libs from plugins Vs bundling them in an uber-bundle. -->
-         <dependency>
-             <groupId>org.jenkins-ci.ui</groupId>
-             <artifactId>bootstrap</artifactId>
-             <version>1.2</version>
-             <type>hpi</type>
-         </dependency>
-         <dependency>
-             <groupId>org.jenkins-ci.ui</groupId>
-             <artifactId>momentjs</artifactId>
-             <version>1.0</version>
-             <type>hpi</type>            
-         </dependency>
-+        <dependency>
-+            <groupId>org.jenkins-ci.ui</groupId>
-+            <artifactId>handlebars</artifactId>
-+            <version>1.0</version>
-+            <type>hpi</type>            
-+        </dependency>
-     </dependencies>
-```
-
-## Install Handlebars NPM packages
+## Install Handlebars NPM package
 
 ```sh
-$ npm install --save-dev hbsfy@2 handlebars@3 jenkins-handlebars-rt 
+$ npm install --save handlebars@3 
 ```
 
-These packages are needed in order for [Handlebarsify](https://www.npmjs.com/package/handlebarsify) to work properly.
+Note that we are not goig to be pre-compiling the [Handlerbars] templates (see [Handlebarsify]) as doing so would
+mean that we would not be able to externalize the [Handlerbars] NPM package (due to how [Handlebarsify] references 
+the [Handlebars] runtime, as well as how helpers work etc).
 
-## Add `withExternalModuleMapping` in `gulpfile.js`
+## Externalize the [Handlerbars] NPM package
+Simply add `handlebars` to the `extDependencies` list in the `package.json` file:
 
-```diff
- var builder = require('@jenkins-cd/js-builder');
- 
- //
- // Bundle the modules.
- // See https://github.com/jenkinsci/js-builder
- //
- builder.bundle('src/main/js/jslib-samples.js')
-        .withExternalModuleMapping('bootstrap-detached', 'bootstrap:bootstrap3')
-        .withExternalModuleMapping('moment', 'momentjs:momentjs2')
-+       .withExternalModuleMapping('handlebars', 'handlebars:handlebars3')
-        .inDir('src/main/webapp/jsbundles');
+```javascript
+  "jenkinscd" : {
+-    "extDependencies": ["bootstrap-detached", "moment"]
++    "extDependencies": ["bootstrap-detached", "handlebars", "moment"]
+  }
 ```
+
+See <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a> for more on externalizing
+NPM dependencies.
 
 ## Move the form to `form.hbs` (from `JSLibSample/index.jelly`)
 Add the [Handlerbars] template in [src/main/js/templates/form.hbs](src/main/js/templates/form.hbs). Note the `{{time}}`
@@ -133,7 +101,9 @@ Moment.js generated `time` value into the template (remember the `{{time}}` toke
 -    // See src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly.
      var moment = require('moment');
 -    $('#main-panel .time').text(moment().format("MMM Do YY"));
-+    var formTemplate = require('./templates/form.hbs');    
++    var handlebars = require('handlebars');
++    var formTemplate = handlebars.compile(require('fs')
++        .readFileSync(__dirname + '/./templates/form.hbs', 'utf8'));
 +
 +    // Apply the 'form' template, appending the resulting content to
 +    // the 'form-container' element. We could also define a Handlers helper
@@ -144,12 +114,16 @@ Moment.js generated `time` value into the template (remember the `{{time}}` toke
  }); 
 ```
 
+Note how we use the `fs` (filesystem) package to load the `form.hbs` template. [jenkins-js-builder] handles
+this at build time.
+
 <hr/>
 <p align="center">
 <b><a href="../../../tree/master/step-05-namespaced-css">&lt;&lt; PREV (step-05-namespaced-css) &lt;&lt;</a>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <a href="../../../tree/master/step-07-jsdom-tests">&gt;&gt; NEXT (step-07-jsdom-tests) &gt;&gt;</a></b>
 </p>
 
 [Handlebars]: http://handlebarsjs.com/
+[Handlebarsify]: https://www.npmjs.com/package/handlebarsify
 [Node.js]: https://nodejs.org
 [Gulp]: https://github.com/gulpjs/gulp
 [jenkins-js-builder]: https://github.com/jenkinsci/js-builder
