@@ -148,16 +148,8 @@ The part of the build output that's of most interest to us here is:
 [11:07:28] Javascript bundle "jslib-samples" will be available in Jenkins as adjunct "org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples".
 ```
 
-This tells us where the generated `.js` [bundle] can be loaded from as a Jenkins adjunct.
-
-
-
-This info can be translated into a
-
-As you can see from the log, the [bundle] will be generated in directory `src/main/webapp/jsbundles` as `jslib-samples.js`.
-This will put the [bundle] into the plugin's webapp dir under `jsbundles`, making it loadable on the plugin path
-at runtime via `plugin/<plugin-name>/jsbundles/jslib-samples.js`. Of course could could also use
-a Stapler adjunct, but that's a bit funky if not needed.
+This tells us where the generated `.js` [bundle] can be loaded from as a Jenkins adjunct i.e. `org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples`.
+We will use this information in the next section.
 
 ## Add the JavaScript bundle to the .jelly page
 Using the information from the previous section, it's easy to determine how to load the [bundle] in Jenkins via the
