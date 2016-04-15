@@ -89,14 +89,13 @@ var builder = require('@jenkins-cd/js-builder');
 // Bundle the modules.
 // See https://github.com/jenkinsci/js-builder
 //
-builder.bundle('src/main/js/jslib-samples.js')
-       .inDir('src/main/webapp/jsbundles');
+builder.bundle('src/main/js/jslib-samples.js');
 ```
 
 The `builder.bundle` command is asking [jenkins-js-builder] to create a [bundle] (using [Browserify]) starting from
-`src/main/js/jslib-samples.js`, and to output the generated [bundle] file in `src/main/webapp/jsbundles`. The
-generated [bundle] file will be totally self contained (containing a private copy of jQuery and anything else used by
-the App) and loadable in a browser.
+`src/main/js/jslib-samples.js`, and to output the generated [bundle] file to the `target/classes` folder, allowing the
+`.js` bundle to be loaded as an adjunct. The generated [bundle] file will be totally self contained (containing a private
+copy of jQuery and anything else used by the App) and loadable in a browser.
  
 ## Build the JavaScript bundle for the Browser
 To build the [bundle], simple run:
@@ -109,27 +108,51 @@ You should see output like the following:
 
 ```sh
 $ gulp
-[12:05:56] Maven project
-[12:05:56]  - src: src/main/js,src/main/less
-[12:05:56]  - test: src/test/js
-[12:05:56] Setting defaults
-[12:05:56] Bundle will be generated in directory 'src/main/webapp/jsbundles' as 'jslib-samples.js'.
-[12:05:56] Using gulpfile ~/projects/jenkins-plugins/jenkins-js-samples/step-02-nodeify/gulpfile.js
-[12:05:56] Starting 'jshint'...
-[12:05:56] 	- Using default JSHint configuration (in jenkins-js-builder). Override by defining a .jshintrc in this folder.
-[12:05:56] Finished 'jshint' after 236 ms
-[12:05:56] Starting 'bundle'...
-[12:05:56] Finished 'bundle' after 91 ms
-[12:05:56] Starting 'appTest'...
-[12:05:56] Testing web server started on port 18999 (http://localhost:18999). Content root: /Users/tfennelly/projects/jenkins-plugins/jenkins-js-samples/step-02-nodeify
-[12:05:56] Finished 'appTest' after 36 ms
-[12:05:56] Starting 'test'...
-[12:05:56] Finished 'test' after 7.39 μs
-[12:05:56] Starting 'default'...
-[12:05:56] Finished 'default' after 7.79 μs
-SUCCESS: 0 specs, 0 failures, 0 skipped, 0 disabled in 0s.
-[12:05:56] Testing web server stopped.
+[11:07:27] **********************************************************************
+[11:07:27] This build is using Jenkins JS Builder.
+[11:07:27]   For command line options and other help, go to
+[11:07:27]   https://www.npmjs.com/package/@jenkins-cd/js-builder
+[11:07:27] **********************************************************************
+[11:07:27] Maven project.
+[11:07:27] 	- Jenkins plugin (HPI): step-02-nodeify
+[11:07:27] Language level set to ECMA v5. Call builder.lang([number]) to change.
+[11:07:27] Defining default tasks...
+[11:07:27] Using gulpfile ~/projects/jenkins-plugins/jenkins-js-samples/step-02-nodeify/gulpfile.js
+[11:07:27] Starting 'lint'...
+[11:07:28] 	- Using the "es5" eslint configuration from eslint-config-jenkins. Override by defining a .eslintrc in this folder (if you really must).
+[11:07:28] Finished 'lint' after 549 ms
+[11:07:28] Starting 'log-env'...
+[11:07:28] Source Dirs:
+[11:07:28]  - src: src/main/js,src/main/less
+[11:07:28]  - test: src/test/js
+[11:07:28] Finished 'log-env' after 599 μs
+[11:07:28] Starting 'bundle_jslib-samples'...
+[11:07:28] Javascript bundle "jslib-samples" will be available in Jenkins as adjunct "org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples".
+[11:07:29] Finished 'bundle_jslib-samples' after 1.53 s
+[11:07:29] Starting 'bundle'...
+[11:07:29] bundling: done
+[11:07:29] Finished 'bundle' after 207 μs
+[11:07:29] Starting 'test'...
+[11:07:29] Test specs: src/test/js/**/*-spec.js
+[11:07:29] Testing web server started on port 18999 (http://localhost:18999). Content root: /Users/tfennelly/projects/jenkins-plugins/jenkins-js-samples/step-02-nodeify
+[11:07:29] Finished 'test' after 54 ms
+[11:07:29] Starting 'default'...
+[11:07:29] Finished 'default' after 3.77 μs
+SUCCESS: 0 specs, 0 failures, 0 skipped, 0 disabled in 0.001s.
+[11:07:30] Testing web server stopped.
 ```
+
+The part of the build output that's of most interest to us here is:
+
+```sh
+[11:07:28] Javascript bundle "jslib-samples" will be available in Jenkins as adjunct "org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples".
+```
+
+This tells us where the generated `.js` [bundle] can be loaded from as a Jenkins adjunct.
+
+
+
+This info can be translated into a
 
 As you can see from the log, the [bundle] will be generated in directory `src/main/webapp/jsbundles` as `jslib-samples.js`.
 This will put the [bundle] into the plugin's webapp dir under `jsbundles`, making it loadable on the plugin path
@@ -138,12 +161,15 @@ a Stapler adjunct, but that's a bit funky if not needed.
 
 ## Add the JavaScript bundle to the .jelly page
 Using the information from the previous section, it's easy to determine how to load the [bundle] in Jenkins via the
-`.jelly` file. In this example we just use regular `<script>` tags, adding them to
+`.jelly` file. In this example we will use a Jenkins adjunt, adding it to
 [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly).
 
 ```html
-<script src="../plugin/step-02-nodeify/jsbundles/jslib-samples.js" type="text/javascript"></script>
+<st:adjunct includes="org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples"/>
 ```
+
+> Note: The `org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples` adjunct identified translates to an adjunct URL of the form `http://localhost:8080/<adjuncts-url>/org/jenkins/ui/jsmodules/step_02_nodeify/jslib-samples.js`.
+> The `<adjuncts-url>` prefix is typically something like `jenkins/adjuncts/1cc49125`. In JavaScript code, it can typically be accessed using the `getAdjunctURL()` method of the `@jenkins-cd/js-modules` package. 
 
 ## Test run
 At this stage, you should be able to take `step-02-nodeify` for a test run and see how the Modularized JavaScript
