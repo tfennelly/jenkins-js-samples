@@ -56,17 +56,17 @@ Install the minimum set of NPM packages required for your plugin to build ([gulp
 $ npm install --save-dev gulp @jenkins-cd/js-builder
 ```
 
-Let's also install the [jquery-detached] package.
+Let's also install the jquery package.
 
 ```sh
-$ npm install --save jquery-detached
+$ npm install --save jquery
 ```
 
 ## Add first CommonJS module
 Create `src/main/js/jslib-samples.js` and add the following JavaScript code:
 
 ```javascript
-var $ = require('jquery-detached').getJQuery();
+var $ = require('jquery');
 
 $(document).ready(function () {    
     $('#side-panel').remove();
@@ -74,7 +74,7 @@ $(document).ready(function () {
 });
 ```
 
-This silly little [CommonJS] module will just use jQuery (via [jquery-detached]) to remove the left side-panel. Of
+This silly little [CommonJS] module will just use jQuery to remove the left side-panel. Of
 course we could add more [CommonJS] modules in `src/main/js` and use them in our App.
 
 ## Add `gulpfile.js`
