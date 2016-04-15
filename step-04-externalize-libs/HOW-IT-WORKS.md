@@ -35,7 +35,13 @@ In this regard, the above mentioned [jenkins-js-builder]/[jenkins-js-modules] ma
 rules i.e. if a dependency bundle for Moment.js version `2.12.0` is already loaded, [jenkins-js-modules] will
 serve that version to anything that has a `moment` NPM dependency specification of version `^2.12.x` or `^2.x` i.e.
 they are considered as being compatible. If a compatible version of `moment` has not yet been loaded,
-[jenkins-js-modules] will trigger the async loading of that adjunct bundle. 
+[jenkins-js-modules] will trigger the async loading of that adjunct bundle.
+ 
+So putting it another way, every plugin will have `.js` bundle adjuncts for all of their external dependencies.
+If JavaScript for plugin "A" requires an externalized dependency to be loaded (e.g. `moment` v2.12.0),
+[jenkins-js-modules] will load that dependency for plugin "A".  If plugin "B" then (some time later) also needs `moment`
+and it's version dependency is compatible with the already loaded version (e.g. `^2.x`), then [jenkins-js-modules]
+will not trigger another loading of of `moment` i.e. it will provide the already loaded `moment` to plugin "B".
 
 ## Test run
 Now take `step-04-externalize-libs` for a test run and see the effect of these changes. What you'll see is that
