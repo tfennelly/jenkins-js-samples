@@ -24,7 +24,8 @@ builder.bundle('src/main/css/bootstrap336/bootstrap-ns3.less');
 ```
 
 We also had to modify [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly) to "namespace" the content
-using `<div class="bootstrap-3">`, as well as updating the CSS adjunct in accordance with the name of the adjunct specified in the build output:
+using `<div class="bootstrap-3">`, as well as updating the CSS adjunct in accordance with the name of the adjunct specified in the build output
+i.e. `org.jenkins.ui.jsmodules.bootstrap336.bootstrap-ns3`:
 
 ```diff
  <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:s="/lib/form">
