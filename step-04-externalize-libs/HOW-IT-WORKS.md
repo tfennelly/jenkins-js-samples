@@ -11,12 +11,12 @@ this kind of situations is to have slimmer/lighter "App" bundles, all sharing th
 In `step-04-externalize-libs`, we build on top of <a href="../../../tree/master/step-03-more-npm-packs">step-03-more-npm-packs</a>,
 changing the bundling process by telling [jenkins-js-builder] to "externalize" some of the NPM dependencies. This means
 that `step-04-externalize-libs`s `.js` [bundle] will no longer include these dependencies and it's size will reduce to
-less ~10Kb gzipped (as opposed to ~100Kb). Note that this change should not require app `.js`
-code changes. The only changes are in the `package.json`.
+~10Kb gzipped (as opposed to ~100Kb). Note that this change should not require app `.js`
+code changes. The only change is in the `package.json`.
 
 ## Configure Node build to externalize dependencies
 Externalizing NPM dependencies is a simple process. Just add an `extDependencies` entry in the `package.json`.
-In these case of this plugin externalizing [bootstrap-detached] and Moment.js:
+In the case of this plugin externalizing [bootstrap-detached] and Moment.js:
 
 ```javascript
   "jenkinscd" : {
@@ -25,7 +25,7 @@ In these case of this plugin externalizing [bootstrap-detached] and Moment.js:
 ```
 
 The above instruction tells [jenkins-js-builder] to create seperate adjunct based bundles for these dependencies
-and to add them to the plugin archive. [jenkins-js-builder] does some magic (with [jenkins-js-modules]) that results
+and to add them to the plugin archive. [jenkins-js-builder] does some magic (with [jenkins-js-modules]) that results in
 these dependency bundles being created in a way that if (e.g.) another plugin has also externalized the same dependency
 (version compatibility info below) then it will only be loaded once at runtime e.g. if a "compatible" version of the
 same NPM dependency was already loaded by [jenkins-js-modules] then it will not be loaded again.
