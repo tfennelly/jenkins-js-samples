@@ -1,6 +1,6 @@
 # Step 05 - "Namespaced" CSS
 In this plugin (`step-05-namespaced-css`), we modify <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a>
-a little so as to [use the default "namespaced" CSS for Twitter Bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap#css-namespacing).
+a little so as to demonstrate how to "namespace" a set of CSS rules.
 
 Namespacing the CSS rules makes it safer to use multiple versions of the same CSS lib on the same page. So if, for example, you are
 using bootstrap on a widget that gets added to a page on which other plugins are contributing content (e.g. the Job index page),

@@ -1,33 +1,30 @@
 # Step 05 - "Namespaced" CSS - How it works
 In this plugin (`step-05-namespaced-css`), we modify <a href="../../../tree/master/step-04-externalize-libs">step-04-externalize-libs</a>
-a little so as to use [the default "namespaced" CSS for Twitter Bootstrap](https://github.com/jenkinsci/js-libs/tree/master/bootstrap#css-namespacing).
+a little so as to demonstrate how to "namespace" a set of CSS rules.
 
 Namespacing the CSS rules makes it safer to use multiple versions of the same CSS lib on the same page. So if, for example, you are
 using bootstrap on a widget that gets added to a page on which other plugins are contributing content (e.g. the Job index page),
 then it makes sense to use a namespaced CSS for bootstrap in case another widget also uses bootstrap, but is using a different version.
 
-## Changes to `gulpfile.js` and `index.jelly`
-You can create and use your own namespaced CSS, but the bootstrap bundle comes with a
-[default namespaced CSS](https://github.com/jenkinsci/js-libs/tree/master/bootstrap#css-namespacing) and using it is trivial.
+## CSS/LESS and `index.jelly` changes
+The easiest way to namespace the CSS rules is to pre-process the ruleset using [LESS]. In this sample, we will namespace the
+bootstrap rules by introducing a `bootstrap-3` namespace. To do this, we added a [bootstrap-ns3.less](src/main/css/bootstrap336/bootstrap-ns3.less)
+in `src/main/css/bootstrap336`. It simply does a [LESS] `@import` of the `bootstrap.css` rules, adding the `.bootstrap-3` class on all of them.
 
-Simply set the `addDefaultCSS` option on the `withExternalModuleMapping` call in the `gulpfile.js`:
-
-```diff
- var builder = require('@jenkins-cd/js-builder');
- 
- //
- // Bundle the modules.
- // See https://github.com/jenkinsci/js-builder
- //
- builder.bundle('src/main/js/jslib-samples.js')
--       .withExternalModuleMapping('bootstrap-detached', 'bootstrap:bootstrap3')
-+       .withExternalModuleMapping('bootstrap-detached', 'bootstrap:bootstrap3', {addDefaultCSS: true})
-        .withExternalModuleMapping('moment', 'momentjs:momentjs2')
-        .inDir('src/main/webapp/jsbundles');
+```less
+.bootstrap-3 {
+  @import (less) "bootstrap.css";
+}
 ```
 
-And modify [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly) to "namespace" the content
-using `<div class="bootstrap-3">`, as well as removing the CDN `<script>` element for bootstrap:
+Of course we also had to modify the `gulpfile.js`, telling it to bundle the new [LESS] file:
+
+```javascript
+builder.bundle('src/main/css/bootstrap336/bootstrap-ns3.less');
+```
+
+We also had to modify [JSLibSample/index.jelly](src/main/resources/org/jenkinsci/ui/samples/JSLibSample/index.jelly) to "namespace" the content
+using `<div class="bootstrap-3">`, as well as updating the CSS adjunct in accordance with the name of the adjunct specified in the build output:
 
 ```diff
  <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:s="/lib/form">
@@ -56,9 +53,13 @@ using `<div class="bootstrap-3">`, as well as removing the CDN `<script>` elemen
          </l:main-panel>
      </l:layout>
      
-     <!-- Add the bundle that's been generated into the webapp/jsbundles folder (by the gulpfile.js) -->
-     <script src="../plugin/step-05-namespaced-css/jsbundles/jslib-samples.js" type="text/javascript"></script>
--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" ></link>
+     <!-- 
+         Add the .js bundle that's been generated into an adjunct folder (by the gulpfile.js).
+         See build output for adjunct details.
+     -->
+     <st:adjunct includes="org.jenkins.ui.jsmodules.step_05_namespaced_css.jslib-samples"/>
+-    <st:adjunct includes="org.jenkins.ui.jsmodules.bootstrap336.bootstrap"/>
++    <st:adjunct includes="org.jenkins.ui.jsmodules.bootstrap336.bootstrap-ns3"/> 
  </j:jelly>
 ```
 
@@ -77,4 +78,5 @@ using `<div class="bootstrap-3">`, as well as removing the CDN `<script>` elemen
 [bootstrap-detached]: https://github.com/tfennelly/bootstrap-detached
 [Browserify]: http://browserify.org/
 [bundle]: https://github.com/jenkinsci/js-modules/blob/master/FAQs.md#what-is-the-difference-between-a-module-and-a-bundle
+[LESS]: http://lesscss.org/
 
