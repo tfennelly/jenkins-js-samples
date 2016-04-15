@@ -25,7 +25,7 @@ the [Handlebars] runtime, as well as how helpers work etc).
 ## Externalize the [Handlerbars] NPM package
 Simply add `handlebars` to the `extDependencies` list in the `package.json` file:
 
-```javascript
+```diff
   "jenkinscd" : {
 -    "extDependencies": ["bootstrap-detached", "moment"]
 +    "extDependencies": ["bootstrap-detached", "handlebars", "moment"]
