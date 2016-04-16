@@ -70,7 +70,7 @@ i.e. just add the adjunct:
 ```
 
 > Note: Of course you can also just place the CSS resources somewhere in `src/main/resources` and they will get bundled
-> in the plugin classpath. The benefit of doing it as outlined above is that it makes dealing with [LESS] a bit easier.
+> in the plugin classpath. The benefit of doing it as outlined above is that it makes dealing with [LESS](http://lesscss.org/) a bit easier.
 > It also auto-adds `.adjunct` marker files to all the resource sub-directories, making it possible to load fonts etc as adjuncts.
 
 ## Test run
