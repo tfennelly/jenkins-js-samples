@@ -69,6 +69,10 @@ i.e. just add the adjunct:
 <st:adjunct includes="org.jenkins.ui.jsmodules.bootstrap336.bootstrap"/>
 ```
 
+> Note: Of course you can also just place the CSS resources somewhere in `src/main/resources` and they will get bundled
+> in the plugin classpath. The benefit of doing it as outlined above is that it makes dealing with [LESS] a bit easier.
+> It also auto-adds `.adjunct` marker files to all the resource sub-directories, making it possible to load fonts etc as adjuncts.
+
 ## Test run
 Now take `step-03-more-npm-packs` for a test run and see the effect of these changes. 
 Again, you can do this by simply [running the plugin using the HPI plugin](https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial#Plugintutorial-DebuggingaPlugin).
