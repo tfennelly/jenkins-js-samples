@@ -14,6 +14,6 @@
     "moment": "^2.10.6"
   },
   "jenkinscd" : {
-    "extDependencies": ["bootstrap-detached", "handlebars", "moment"]
+    "import": ["bootstrap-detached", "handlebars", "moment"]
   }
 }

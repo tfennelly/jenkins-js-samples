@@ -35,7 +35,7 @@ THE SOFTWARE.
         Add the .js bundle that's been generated into an adjunct folder (by the gulpfile.js).
         See build output for adjunct details.
     -->
-    <st:adjunct includes="org.jenkins.ui.jsmodules.step_06_handlebars_templates.jslib-samples"/>
+    <st:adjunct includes="org.jenkins.ui.jsmodules.step-06-handlebars-templates.jslib-samples"/>
     <!-- 
         Add the bootstrap css that's been generated into an adjunct folder (by the gulpfile.js).
         See build output for adjunct details.
