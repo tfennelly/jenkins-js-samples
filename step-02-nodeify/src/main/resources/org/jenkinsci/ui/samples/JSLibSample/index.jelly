@@ -50,5 +50,5 @@ THE SOFTWARE.
         Add the .js bundle that's been generated into an adjunct folder (by the gulpfile.js).
         See build output for adjunct details.
     -->
-    <st:adjunct includes="org.jenkins.ui.jsmodules.step_02_nodeify.jslib-samples"/>
+    <st:adjunct includes="org.jenkins.ui.jsmodules.step-02-nodeify.jslib-samples"/>
 </j:jelly>
