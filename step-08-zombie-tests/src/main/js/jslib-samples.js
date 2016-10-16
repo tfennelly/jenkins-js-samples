@@ -4,6 +4,8 @@ var handlebars = require('handlebars');
 var formTemplate = handlebars.compile(require('fs')
     .readFileSync(__dirname + '/./templates/form.hbs', 'utf8'));
 
+/* eslint-disable func-names */
+
 $(document).ready(function () {
     var moment = require('moment');
 
