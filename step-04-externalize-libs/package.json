@@ -13,6 +13,6 @@
     "moment": "^2.10.6"
   },
   "jenkinscd" : {
-    "extDependencies": ["bootstrap-detached", "moment"]
+    "import": ["bootstrap-detached", "moment"]
   }
 }

@@ -51,7 +51,7 @@ THE SOFTWARE.
         Add the .js bundle that's been generated into an adjunct folder (by the gulpfile.js).
         See build output for adjunct details.
     -->
-    <st:adjunct includes="org.jenkins.ui.jsmodules.step_04_externalize_libs.jslib-samples"/>
+    <st:adjunct includes="org.jenkins.ui.jsmodules.step-04-externalize-libs.jslib-samples"/>
     <!--
         Add the bootstrap css that's been generated into an adjunct folder (by the gulpfile.js). 
         See build output for adjunct details. 
