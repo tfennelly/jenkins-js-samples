@@ -53,7 +53,7 @@ THE SOFTWARE.
         Add the .js bundle that's been generated into an adjunct folder (by the gulpfile.js).
         See build output for adjunct details.
     -->
-    <st:adjunct includes="org.jenkins.ui.jsmodules.step_05_namespaced_css.jslib-samples"/>
+    <st:adjunct includes="org.jenkins.ui.jsmodules.step-05-namespaced-css.jslib-samples"/>
     <!-- 
         Add the namespaced bootstrap css that's been generated into an adjunct folder (by the gulpfile.js).
         See build output for adjunct details.
