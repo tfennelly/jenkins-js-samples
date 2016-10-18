@@ -15,12 +15,12 @@ that `step-04-externalize-libs`s `.js` [bundle] will no longer include these dep
 code changes. The only change is in the `package.json`.
 
 ## Configure Node build to externalize dependencies
-Externalizing NPM dependencies is a simple process. Just add an `extDependencies` entry in the `package.json`.
+Externalizing NPM dependencies is a simple process. Just add an `import` entry in the `package.json`.
 In the case of this plugin externalizing [bootstrap-detached] and Moment.js:
 
 ```javascript
   "jenkinscd" : {
-    "extDependencies": ["bootstrap-detached", "moment"]
+    "import": ["bootstrap-detached", "moment"]
   }
 ```
 
